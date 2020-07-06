@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const plantSchema = new Schema({
 species: String,
 size: {
     type: String,
     enum: ['cutting', 'mature'],
     default: 'cutting'
-  }
+  },
+  description: String
 });
 
-const User = mongoose.model('User', userSchema);
+const Plant = mongoose.model('Plant', plantSchema);
 
-module.exports = User;
+module.exports = Plant;

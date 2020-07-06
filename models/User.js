@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  FbId: String,
   role: {
     type: String,
     enum: ['admin', 'user'],
@@ -12,7 +11,7 @@ const userSchema = new Schema({
   },
   plants: [{
     type: Schema.Types.ObjectId,
-    ref: 'plant'
+    ref: 'Plant'
   }]
 });
 

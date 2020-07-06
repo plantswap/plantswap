@@ -2,10 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  // passport - req.user
   const user = req.user;
-
-  console.log('req.user: ', req.user);
   res.render('index', { user: user });
 });
 
@@ -13,12 +10,9 @@ router.get('/', (req, res, next) => {
 
 const loginCheck = () => {
   return (req, res, next) => {
-    // instead of if (req.session.user) - passport uses req.isAuthenticated()
     if (req.isAuthenticated()) {
-      // if user is logged in, proceed to the next function
       next();
     } else {
-      // else if user is not logged in, redirect to /login
       res.redirect('/auth/login');
     }
   };

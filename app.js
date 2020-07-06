@@ -101,20 +101,20 @@ passport.use(
 
 // Passport fb strategy setup
 
-FacebookStrategy = require('passport-facebook').Strategy;
+// FacebookStrategy = require('passport-facebook').Strategy;
 
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
-  }
-));
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: "http://127.0.0.1:3000/auth/facebook/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//     User.findOrCreate(function(err, user) {
+//       if (err) { return done(err); }
+//       done(null, user);
+//     });
+//   }
+// ));
   // window.fbAsyncInit = function() {
   //   FB.init({
   //     appId      : '611880736200361',
@@ -162,7 +162,7 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// const roomsRoutes = require('./routes/rooms');
-// app.use('/rooms', roomsRoutes);
+const plants = require('./routes/plants');
+app.use('/plants', plants);
 
 module.exports = app;

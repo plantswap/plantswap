@@ -19,49 +19,39 @@ router.post(
   })
 )
 
-// github authentication routing
-router.get('/facebook', passport.authenticate('facebook'));
-
-router.get(
-  '/facebook/callback',
-  passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/auth/login',
-  })
-);
-
-
-
 router.post('/signup', (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password} = req.body;
 
   if (password.length < 8) {
     res.render('auth/signup', {
-      message: 'Your password must be 8 characters minimun.'
+      message: 'Your password must have at least 8 characters.'
     });
     return;
   }
   if (username === '') {
-    res.render('auth/signup', { message: 'Your username cannot be empty' });
+    res.render('auth/signup', { message: 'Please define a username.' });
     return;
   }
 
   User.findOne({ username: username }).then(found => {
     if (found !== null) {
-      res.render('auth/signup', { message: 'Wrong credentials' });
+      res.render('auth/signup', { message: 'username taken' });
     } else {
-      // we can create a user with the username and password pair
       const salt = bcrypt.genSaltSync();
       const hash = bcrypt.hashSync(password, salt);
 
-      User.create({ username: username, password: hash })
+      User.create({ 
+        username: username, 
+        password: hash,
+        // country: country,
+        // zip: zip
+
+       })
         .then(dbUser => {
-          // passport - login the user
           req.login(dbUser, err => {
             if (err) next(err);
             else res.redirect('/');
           });
-
           // redirect to login
           res.redirect('login');
         })
@@ -78,7 +68,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/logout', (req, res, next) => {
-  // passport
   req.logout();
   res.redirect('/');
 });

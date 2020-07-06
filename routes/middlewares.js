@@ -1,5 +1,4 @@
-  
-// create a middleware that checks if a user is logged in
+  // create a middleware that checks if a user is logged in
 const loginCheck = () => {
     return (req, res, next) => {
       if (req.isAuthenticated()) {
