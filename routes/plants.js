@@ -13,6 +13,15 @@ router.get('/index', (req, res) => {
   })
 });
 
+router.get('/myplants', (req, res, next) => {
+  Plant.find({owner: req.user._id})
+  .then(myPlants => {
+    res.render('plants/myplants', { plants: myPlants });
+  }).catch(err => {
+    console.log(err);
+  })
+});
+
 // router.get('/add', (req, res) => {
 //     res.render('plants/add');
 //   }).catch(err => {
@@ -22,15 +31,14 @@ router.get('/index', (req, res) => {
     res.render('plants/add');
   });
 
-// router.get('/books/:bookId', (req, res) => {
-//   const bookId = req.params.bookId;
-//   Book.findById(bookId).populate('author').then(bookFromDatabase => {
-//     console.log(bookFromDatabase);
-//     res.render('bookDetails', { book: bookFromDatabase });
-//   }).catch(err => {
-//     console.log(err);
-//   });
-// });
+router.get('/:plantId', (req, res) => {
+  const plantId = req.params.plantId;
+  Plant.findById(plantId).then(plant => {
+    res.render('plants/plantDetails', { plant: plant });
+  }).catch(err => {
+    console.log(err);
+  });
+});
 
 router.post('/index', (req, res) => {
   console.log(req.body);
@@ -42,10 +50,11 @@ router.post('/index', (req, res) => {
   Plant.create({
     species,
     size,
-    description
+    description,
+    owner: req.user._id
   }).then(plant => {
     console.log(`Success! ${species} was added to the database.`);
-    res.redirect(`/index`);
+    res.redirect(`/plants/myplants`);
     // res.redirect(`/${book._id}`);
   }).catch(err => {
     console.log(err);

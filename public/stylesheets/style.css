@@ -1,55 +1,83 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+html {
+    font-family: 'Poppins', sans-serif; 
+     
+  
+ background-image: url('/img/plant-bg.jpg');
+    background-repeat: no-repeat;
+    
+  background-attachment: fixed;
+  background-position: center center;
+  
+  background-size: cover;
+  background-color:lightgreen;
+}
+ 
+ 
+.intro {
+    
+    margin-top:15%; 
+    margin-left:23%;
+    margin-right:23%;
+    padding-bottom:2%;
+    background-color:rgba(253,253,253, 0.8);
+    padding:15px;
+    
+}
+.intro-text {
+    
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
 
-a {
-  color: #00b7ff; }
+}
+ 
 
-#form {
-  margin: 30px auto;
-  width: 380px; }
+h1 {
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: -10px;
+}
 
-#form label {
-  color: #666;
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 100%; }
+h2 {
+    font-size: 2em;
+    font-weight: 400;
+    margin-bottom: -10px;
+}
 
-#form input,
-#form button {
-  box-sizing: border-box;
-  font-size: 14px;
-  outline: 0;
-  padding: 4px;
-  width: 100%;
-  margin-bottom: 20px; }
+p {
+   font-size: 1.5em;
+   font-weight: 300;
+}
 
-#form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.3s ease background;
-  width: 100%; }
+.intro-buttons {
+    display: flex; 
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch; 
+}
 
-#form button:hover {
-  background: #fff;
-  color: #43a3e6;
-  transition: 0.3s ease background; }
+button {
+    margin: 10px; 
+    border:none;
+    background-color: lightgreen;
+    color:darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.4em;
+    font-weight: 300;
+    width:30%;
+}
 
-.error-message {
-  background: #f02b63;
-  box-sizing: border-box;
-  color: #fff;
-  margin: 20px auto;
-  padding: 20px;
-  width: 100%; }
-
-/*# sourceMappingURL=style.css.map */
+.cancel {
+    margin: 10px; 
+    border:lightgreen solid 1px;
+    background-color: white;
+    color:darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.4em;
+    font-weight: 300;
+    width:30%;
+}

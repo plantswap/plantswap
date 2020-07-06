@@ -8,7 +8,8 @@ size: {
     enum: ['cutting', 'mature'],
     default: 'cutting'
   },
-  description: String
+  description: String,
+  owner: String
 });
 
 const Plant = mongoose.model('Plant', plantSchema);
