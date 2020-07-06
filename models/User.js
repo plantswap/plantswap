@@ -10,10 +10,10 @@ const userSchema = new Schema({
     enum: ['admin', 'user'],
     default: 'user'
   },
-//   plants: [{
-//     type: Schema.Types.ObjectId,
-//     ref: 'plant'
-//   }]
+  plants: [{
+    type: Schema.Types.ObjectId,
+    ref: 'plant'
+  }]
 });
 
 const User = mongoose.model('User', userSchema);
