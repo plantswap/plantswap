@@ -60,7 +60,7 @@ p {
         align-content: stretch; 
 }
 
-button {
+.intro-buttons > a {
     margin: 10px; 
     border:none;
     background-color: lightgreen;
@@ -69,9 +69,22 @@ button {
     font-size:1.4em;
     font-weight: 300;
     width:30%;
+    text-decoration: none;
+    text-align: center;
 }
 
-.cancel {
+.intro-buttons > button {
+    margin: 10px; 
+    border:none;
+    background-color: lightgreen;
+    color:darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.4em;
+    font-weight: 300;
+    width:50%; 
+}
+
+.intro-buttons > .cancel {
     margin: 10px; 
     border:lightgreen solid 1px;
     background-color: white;
@@ -79,28 +92,62 @@ button {
     font-family: 'Poppins', sans-serif;
     font-size:1.4em;
     font-weight: 300;
-    width:30%;
+    width:50%;
 }
 
-nav {
+.signup-form {
+
+    font-size: 1.1rem;
+    font-weight: 300;
+    
+}
+.signup-form-buttons{
+
+    display: flex;  
+    margin-left:-3%;
+}
+
+.signup-form-buttons > button {
+        margin: 10px; 
+        border:none;
+        background-color: lightgreen;
+        width:5em;
+        height:1.5em;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 300;
+        font-size:1.4rem;
+
+} 
+
+input { 
+    margin-bottom: 4%
+ }
+
+
+ nav { 
     background-color:rgba(253,253,253, 0.8);
     color:darkslategrey;
 }
-
-nav ul {
-    display: flex;
+ 
+.username {
+    margin-right: 600px;
+}
+nav > ul {
+    display:flex;
     flex-direction: row;
     align-content: space-between;
     justify-content: flex-end;
+
+    
 }
-nav ul li {
+nav > ul > li {
     list-style: none;
     margin: 2%;
-    font-size: 1.5rem;
-}
-
-.username {
-    margin-right: 600px;
+    font-size: 1.3rem;
+    @media only screen and (max-width: 1000px){
+        font-size:0.5rem;
+    }
 }
 
 .myplants { 
