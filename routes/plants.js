@@ -14,8 +14,9 @@ const loginCheck = () => {
 };
 
 router.get('/index', (req, res) => {
+  const user = req.user;
   Plant.find().populate('user').then(allPlants => {
-    res.render('plants/index', { plants: allPlants });
+    res.render('plants/index', { plants: allPlants, user: user });
   }).catch(err => {
     console.log(err);
   })
@@ -32,10 +33,12 @@ router.get('/myplants', loginCheck(), (req, res, next) => {
 });
 
   router.get('/add', loginCheck(), (req, res, next) => {
-    res.render('plants/add');
+    const user = req.user;
+    res.render('plants/add', {user: user});
   });
 
 router.get('/:plantId', (req, res) => {
+  const user = req.user;
   const plantId = req.params.plantId;
   Plant.findById(plantId).populate('user').then(plant => {
     res.render('plants/plantDetails', { plant: plant });
@@ -45,7 +48,7 @@ router.get('/:plantId', (req, res) => {
 }); 
 
 router.post('/index', loginCheck(), (req, res) => {
-  console.log(req.body);
+  const user = req.user;
   const { species, size, description } = req.body;
   Plant.create({
     species,
