@@ -14,8 +14,9 @@ const loginCheck = () => {
 };
 
 router.get('/index', (req, res) => {
-  Plant.find().then(allPlants => {
-    res.render('plants/index', { plants: allPlants });
+  const user = req.user;
+  Plant.find().populate('user').then(allPlants => {
+    res.render('plants/index', { plants: allPlants, user: user });
   }).catch(err => {
     console.log(err);
   })
@@ -32,20 +33,22 @@ router.get('/myplants', loginCheck(), (req, res, next) => {
 });
 
   router.get('/add', loginCheck(), (req, res, next) => {
-    res.render('plants/add');
+    const user = req.user;
+    res.render('plants/add', {user: user});
   });
 
 router.get('/:plantId', (req, res) => {
+  const user = req.user;
   const plantId = req.params.plantId;
   Plant.findById(plantId).populate('user').then(plant => {
     res.render('plants/plantDetails', { plant: plant });
   }).catch(err => {
     console.log(err);
   });
-});
+}); 
 
 router.post('/index', loginCheck(), (req, res) => {
-  console.log(req.body);
+  const user = req.user;
   const { species, size, description } = req.body;
   Plant.create({
     species,
@@ -61,40 +64,5 @@ router.post('/index', loginCheck(), (req, res) => {
   })
 })
 
-// router.get('/books/edit/:bookId', (req, res) => {
-//   Book.findById(req.params.bookId)
-//     .then(book => {
-//       res.render('bookEdit', { book: book })
-//     }).catch(err => {
-//       console.log(err);
-//     });
-// })
-
-// router.get('/books/delete/:bookId', (req, res) => {
-//   Book.deleteOne({ _id: req.params.bookId })
-//     .then(() => {
-//       res.redirect('/books');
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       // next(err)
-//     })
-// })
-
-// router.post('/books/edit/:bookId', (req, res) => {
-//   const { title, author, description, rating } = req.body;
-//   Book.findByIdAndUpdate(req.params.bookId, {
-//     title,
-//     description,
-//     author,
-//     rating
-//   })
-//     .then(book => {
-//       res.redirect(`/books/${book._id}`);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// })
 
 module.exports = router;

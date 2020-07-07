@@ -1,7 +1,18 @@
-<h1>this is the plant details page</h1>
+
+
+<div class="plant-details">
+
 {{#with plant}}
-<h2>{{species}}</h2>
-<p>Size: {{size}}</p>
-<p>Description: <i>"{{description}}"</i></p>
-<p>Owner: {{user.username}}</p>
+<h1 style="text-align: center;">{{species}}</h1>
+
+<div class="plant-details-size-owner">
+<p>{{size}}</p>
+<p>by {{user.username}}</p>
+</div>
+<div class="plant-details-description">
+<p>{{description}}</p>
+</div>
+
 {{/with}}
+
+</div>

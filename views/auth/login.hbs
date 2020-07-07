@@ -1,3 +1,9 @@
+<div class="intro">
+
+    <div class="intro-text"> 
+    <h2>Log into PlantSwap</h2>
+  <p></p>
+
 <form id="form" action="/auth/login" method="POST">
   <label for="username">User name</label><br />
   <input type="text" name="username" />
@@ -9,7 +15,13 @@
     <div class="error-message">{{errorMessage}}</div>
   {{/if}}
 <br>
+<div class="signup-form-buttons">
   <button type="submit">Log in</button>
+</div>
+
+   {{#if message}}
+  <div class="error-message">{{message}}</div>
+  {{/if}}
 </form>
 
-<a href="/">Home</a> 
+</div>

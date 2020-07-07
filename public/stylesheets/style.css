@@ -1,3 +1,5 @@
+/* GENERAL */
+
 html {
     font-family: 'Poppins', sans-serif; 
      
@@ -12,6 +14,14 @@ html {
   background-color:lightgreen;
 }
  
+
+.header1 {
+    margin-left: 5%;
+    margin-bottom: 3%;
+    text-decoration: underline;
+    font-size: 2.5rem; 
+    }
+    
  
 .intro {
     
@@ -51,6 +61,33 @@ p {
    font-size: 1.5em;
    font-weight: 300;
 }
+
+
+nav { 
+    background-color:rgba(253,253,253, 0.8);
+    color:darkslategrey;
+}
+ 
+nav > ul {
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: flex-end;
+    
+}
+nav > ul > li {
+    list-style: none;  
+    margin: 2%;
+    font-size: 1.3rem;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+/* AUTHENTICATION */
 
 .intro-buttons {
     display: flex; 
@@ -124,44 +161,136 @@ input {
     margin-bottom: 4%
  }
 
+/* MY PLANTS AND FIND PLANTS  */
 
- nav { 
-    background-color:rgba(253,253,253, 0.8);
-    color:darkslategrey;
-}
- 
+
 .username {
     margin-right: 600px;
 }
-nav > ul {
+ 
+
+.plant-details {
+    background-color: white;
+    width:60%;
+    font-size: 0.7rem; 
+    margin-left:20%;
+    height:400px;
+    padding-top: 1%;
+    margin-top:5%;
+}
+
+.plant-details-size-owner{
     display:flex;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: flex-end;
-
-    
-}
-nav > ul > li {
-    list-style: none;
-    margin: 2%;
-    font-size: 1.3rem;
-    @media only screen and (max-width: 1000px){
-        font-size:0.5rem;
-    }
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.7rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
 }
 
-.myplants { 
-    width:70%;
+.plant-details-description {
+    margin-left:5%;
+}
+
+.add-plant-button { 
+    border:none;
+    background-color: lightgreen;
+    color:darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.3em;
+    font-weight: 300; 
+    text-decoration: none;
+    text-align: center; 
+}
+
+.plants-box{
+     width:70%;
     height:700px;
     background-color:rgba(253,253,253, 0.85);
     display:flex;   
     flex-direction: column;
     justify-content: flex-start;
     margin-left:15%;
-   
 }
 
-h1 {
-    font-size: 3em;
-    font-weight: 400;
+.single-plant {
+    display:flex;
+}
+
+.single-plant-header {
+    margin-left: 5%;
+    text-decoration: none;
+    font-size:1.4rem;
+    font-weight: 600;
+
+    color: inherit;
+
+}
+
+.single-plant-details{
+    margin-left: 5%;
+    font-size: 0.7rem;
+}
+
+
+/* ADD NEW PLANT FORM */
+
+.add-plant-box {
+
+    width:70%;
+    height:700px;
+    background-color:rgba(253,253,253, 0.85);  
+    margin-left:15%;    
+
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.add-plant-form {
+ 
+    margin-top: 5%;
+    
+} 
+
+.add-plant-button {
+    margin-top: 5%;
+    border:none;
+    background-color: lightgreen;
+    color:darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.1em;
+    font-weight: 300;
+    width:50%; 
+}
+
+
+.add-plant-box > .add-plant-form > label, input {
+    display: block;
+}
+
+.add-plant-box > .add-plant-form > label {
+    margin-bottom: 2%;
+    margin-top:4%;
+}
+
+.add-plant-size {
+    display:flex; 
+}
+
+.add-plant-size > #size {
+    margin-left:5%;
+}
+ 
+
+.add-plant-header{
+
+    margin-left: 5%; 
+    text-decoration: underline;
+    font-size: 2.5rem; 
+    
+
 }
