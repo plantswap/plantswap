@@ -10,11 +10,12 @@ const userSchema = new Schema({
     type: String,
     enum: ['admin', 'user'],
     default: 'user'
-  },
-  plants: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Plant'
-  }]
+  }
+  // ,
+  // plants: [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Plant'
+  // }]
 });
 
 const User = mongoose.model('User', userSchema);

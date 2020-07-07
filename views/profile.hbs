@@ -1,0 +1,26 @@
+<nav> 
+        <ul>
+            <li>Find Plants</li>
+            <li>My Plants</li>
+            <li>Profile</li>
+            <li>Log Out</li>
+        </ul>
+    </nav>
+<p>{{user.username}}❤️</p>
+    <div class="myplants">
+        
+    <h1>My Data</h1>
+    {{#each plants}}
+<p class = "list-entry">
+<a href="/plants/{{this._id}}">{{this.species}}</a>
+{{!-- <form action="/movies/{{this._id}}/delete" method="post">
+    <button type="submit">Delete from Database</button>
+</form> --}}
+</p>
+{{/each}}
+    </div>
+<a href="/plants/add">add a plant</a>
+
+{{#if user}}
+<a href="/auth/logout">Logout</a>
+{{/if}}

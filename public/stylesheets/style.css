@@ -2,7 +2,7 @@ html {
     font-family: 'Poppins', sans-serif; 
      
   
- background-image: url('/img/plant-bg.jpg');
+ background-image: url('../images/plant-bg.jpg');
     background-repeat: no-repeat;
     
   background-attachment: fixed;
@@ -80,4 +80,41 @@ button {
     font-size:1.4em;
     font-weight: 300;
     width:30%;
+}
+
+nav {
+    background-color:rgba(253,253,253, 0.8);
+    color:darkslategrey;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: flex-end;
+}
+nav ul li {
+    list-style: none;
+    margin: 2%;
+    font-size: 1.5rem;
+}
+
+.username {
+    margin-right: 600px;
+}
+
+.myplants { 
+    width:70%;
+    height:700px;
+    background-color:rgba(253,253,253, 0.85);
+    display:flex;   
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left:15%;
+   
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 400;
 }

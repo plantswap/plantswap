@@ -9,7 +9,10 @@ size: {
     default: 'cutting'
   },
   description: String,
-  owner: String
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
 });
 
 const Plant = mongoose.model('Plant', plantSchema);
