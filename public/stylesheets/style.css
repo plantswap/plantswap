@@ -304,11 +304,10 @@ input {
 .add-plant-box {
 
     width:70%;
-    height:500px;
+    height:600px;
     background-color:rgba(253,253,253, 0.85);  
     margin-left:15%;    
-
-
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -337,10 +336,6 @@ input {
     display: block;
 }
 
-.add-plant-box > .add-plant-form > label {
-    margin-bottom: 2%;
-    margin-top:4%;
-}
 
 .add-plant-size {
     display:flex;  
@@ -352,11 +347,9 @@ input {
  
 
 .add-plant-header{
-
-    margin-left: 5%; 
-    text-decoration: underline;
+ 
     font-size: 2.5rem; 
-    
+    margin-left:-10%;
 
 }
 
