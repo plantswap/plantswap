@@ -13,6 +13,56 @@ const loginCheck = () => {
   };
 };
 
+router.get('/:plantId/edit', (req, res) => {
+  Plant.findById(req.params.plantId)
+    .then(plant => {
+      res.render('plants/edit', { plant: plant })
+    }).catch(err => {
+      console.log(err);
+    });
+})
+
+router.post('/edit/:plantId', (req, res) => {
+  const { species, size, description } = req.body;
+  Plant.findByIdAndUpdate(req.params.plantId, {
+    species,
+    size,
+    description
+  })
+    .then(plant => {
+      res.redirect(`/plants/${plant._id}`);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+})
+
+router.post('/:plantId/delete', (req, res) => {
+  Plant.findByIdAndRemove(req.params.plantId)
+.then(trashed => {
+    console.log(`Success! selected entry was deleted from the database.`);
+    res.redirect(`/plants/myplants`);
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
+router.post('/index', loginCheck(), (req, res) => {
+  const { species, size, description } = req.body;
+  Plant.create({
+    species,
+    size,
+    description,
+    user: req.user._id
+  }).then(plant => {
+    console.log(`Success! ${species} was added to the database.`);
+    res.redirect(`/plants/myplants`);
+    // res.redirect(`/${plant._id}`);
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
 router.get('/index', (req, res) => {
   Plant.find().then(allPlants => {
     res.render('plants/index', { plants: allPlants });
@@ -43,58 +93,5 @@ router.get('/:plantId', (req, res) => {
     console.log(err);
   });
 });
-
-router.post('/index', loginCheck(), (req, res) => {
-  console.log(req.body);
-  const { species, size, description } = req.body;
-  Plant.create({
-    species,
-    size,
-    description,
-    user: req.user._id
-  }).then(plant => {
-    console.log(`Success! ${species} was added to the database.`);
-    res.redirect(`/plants/myplants`);
-    // res.redirect(`/${plant._id}`);
-  }).catch(err => {
-    console.log(err);
-  })
-})
-
-// router.get('/books/edit/:bookId', (req, res) => {
-//   Book.findById(req.params.bookId)
-//     .then(book => {
-//       res.render('bookEdit', { book: book })
-//     }).catch(err => {
-//       console.log(err);
-//     });
-// })
-
-// router.get('/books/delete/:bookId', (req, res) => {
-//   Book.deleteOne({ _id: req.params.bookId })
-//     .then(() => {
-//       res.redirect('/books');
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       // next(err)
-//     })
-// })
-
-// router.post('/books/edit/:bookId', (req, res) => {
-//   const { title, author, description, rating } = req.body;
-//   Book.findByIdAndUpdate(req.params.bookId, {
-//     title,
-//     description,
-//     author,
-//     rating
-//   })
-//     .then(book => {
-//       res.redirect(`/books/${book._id}`);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// })
 
 module.exports = router;
