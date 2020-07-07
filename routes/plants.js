@@ -13,6 +13,56 @@ const loginCheck = () => {
   };
 };
 
+router.get('/:plantId/edit', (req, res) => {
+  Plant.findById(req.params.plantId)
+    .then(plant => {
+      res.render('plants/edit', { plant: plant })
+    }).catch(err => {
+      console.log(err);
+    });
+})
+
+router.post('/edit/:plantId', (req, res) => {
+  const { species, size, description } = req.body;
+  Plant.findByIdAndUpdate(req.params.plantId, {
+    species,
+    size,
+    description
+  })
+    .then(plant => {
+      res.redirect(`/plants/${plant._id}`);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+})
+
+router.post('/:plantId/delete', (req, res) => {
+  Plant.findByIdAndRemove(req.params.plantId)
+.then(trashed => {
+    console.log(`Success! selected entry was deleted from the database.`);
+    res.redirect(`/plants/myplants`);
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
+router.post('/index', loginCheck(), (req, res) => {
+  const { species, size, description } = req.body;
+  Plant.create({
+    species,
+    size,
+    description,
+    user: req.user._id
+  }).then(plant => {
+    console.log(`Success! ${species} was added to the database.`);
+    res.redirect(`/plants/myplants`);
+    // res.redirect(`/${plant._id}`);
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
 router.get('/index', (req, res) => {
   const user = req.user;
   Plant.find().populate('user').then(allPlants => {
@@ -46,23 +96,5 @@ router.get('/:plantId', (req, res) => {
     console.log(err);
   });
 }); 
-
-router.post('/index', loginCheck(), (req, res) => {
-  const user = req.user;
-  const { species, size, description } = req.body;
-  Plant.create({
-    species,
-    size,
-    description,
-    user: req.user._id
-  }).then(plant => {
-    console.log(`Success! ${species} was added to the database.`);
-    res.redirect(`/plants/myplants`);
-    // res.redirect(`/${plant._id}`);
-  }).catch(err => {
-    console.log(err);
-  })
-})
-
 
 module.exports = router;

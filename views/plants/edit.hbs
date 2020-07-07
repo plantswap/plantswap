@@ -1,0 +1,14 @@
+{{#with plant}}
+<form action="/plants/edit/{{_id}}" method="post">
+    <label for="species">Species: </label>
+    <input type="text" name="species" id="species" value="{{species}}">
+
+    <label for="size">Size: </label>
+    <input type="text" name="size" id="size" value="{{size}}">
+
+    <label for="description">Description: </label>
+    <input type="textarea" name="description" id="description" value="{{description}}">
+
+    <button type="submit">Save changes</button>
+</form>
+{{/with}}
