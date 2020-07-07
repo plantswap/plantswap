@@ -14,9 +14,11 @@ const loginCheck = () => {
 };
 
 router.get('/:plantId/edit', (req, res) => {
+
+  const user = req.user;
   Plant.findById(req.params.plantId)
     .then(plant => {
-      res.render('plants/edit', { plant: plant })
+      res.render('plants/edit', { plant: plant, user: user })
     }).catch(err => {
       console.log(err);
     });
@@ -91,7 +93,7 @@ router.get('/:plantId', (req, res) => {
   const user = req.user;
   const plantId = req.params.plantId;
   Plant.findById(plantId).populate('user').then(plant => {
-    res.render('plants/plantDetails', { plant: plant });
+    res.render('plants/plantDetails', { plant: plant, user: user });
   }).catch(err => {
     console.log(err);
   });

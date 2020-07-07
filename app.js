@@ -18,7 +18,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 mongoose
-  .connect('mongodb://localhost/plantswap', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI||'mongodb://localhost/plantswap', { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo!`
