@@ -1,15 +1,16 @@
+
+     
  <nav> 
         <ul>
-            <li>Find Plants</li>
+            <li href="#">Find Plants</li>
             <li>My Plants</li>
             <li>Profile</li>
             <li>Log Out</li>
         </ul>
-    </nav>
-<p>{{user.username}}❤️</p>
+    </nav> 
     <div class="myplants">
         
-    <h1>My Plants</h1>
+    <h2>My Plants</h2>
     {{#each plants}}
 <p class = "list-entry">
     {{this.species}}
@@ -21,10 +22,5 @@
 {{/each}}
     </div>
 
-
-{{#if user}}
-<a href="/auth/logout">Logout</a>
-{{else}}
-<a href="/auth/signup">Signup</a>
-<a href="/auth/login">Login</a>
-{{/if}}
+  </body>
+ </html>

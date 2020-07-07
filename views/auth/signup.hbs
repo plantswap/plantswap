@@ -1,8 +1,9 @@
 <div class="intro">
     <div class="intro-text"> 
     <h2>Sign Up for PlantSwap</h2>
+
 ​
-<form id="form" action="/auth/signup" method="POST">
+<form id="form" action="/auth/signup" method="POST" class="signup-form"> 
   <label for="username">User name</label><br />
   <input type="text" name="username" />
 <br>
@@ -19,7 +20,7 @@
   <div class="error-message">{{message}}</div>
   {{/if}}
 <br>
-  <div class="intro-buttons">
+  <div class="signup-form-buttons">
     <button type="submit">Signup</button>
     <button class="cancel" href="/">Cancel</button> 
   </div>

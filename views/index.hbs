@@ -17,9 +17,16 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-<h1>{{title}}</h1>
-<p>Welcome {{#if user}}{{user.username}}{{/if}} ❤️</p>
 
+
+<div class="intro">
+<div class="intro-text"> 
+<h1>Welcome to PlantSwap {{#if user}}{{user.username}}{{/if}} ❤️</h1>
+<p>Exchange and share your plants with other plant lovers</p>
+</div> 
+ 
+
+<div class="intro-buttons">
 {{#if user}}
 <a href="/plants/myplants">Go to My Plants</a>
 <a href="/auth/logout">Logout</a>
@@ -27,3 +34,4 @@
 <a href="/auth/signup">Signup</a>
 <a href="/auth/login">Login</a>
 {{/if}}
+</div>
