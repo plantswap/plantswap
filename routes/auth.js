@@ -20,7 +20,7 @@ router.post(
 )
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, country, zip, street, house} = req.body;
+  const { username, password, country, city, zip, street, house} = req.body;
 
   if (password.length < 8) {
     console.log("password too short")
@@ -44,6 +44,7 @@ router.post('/signup', (req, res, next) => {
         username: username, 
         password: hash,
         country: country,
+        city: city,
         zip: zip,
         street: street,
         house: house
