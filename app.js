@@ -40,6 +40,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use(cors());
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);

@@ -1,17 +1,52 @@
-
-
-    <div class="plants-box">
-        <div></div>
+<div class="plants-box">
     <h1>My Data</h1>
     {{#with user}}
+    <h3>Username: {{username}}</h3>
+    <p>Country: <span>{{country}} </span></p>
+    <p>City: <span>{{city}} </span></p>
+    <p>ZIP: <span>{{zip}} </span></p>
+    <p>Address: <span>{{street}}</span>, <span>{{house}}</span></p>
+    {{!-- <form action="/profile/edit/{{_id}}" method="get">
+    <button type="submit">Edit my data</button>
+</form> --}}
+<div id="map" style='width: 400px; height: 300px;'></div>
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+    let queryString="";
+    let queryThings=document.querySelectorAll("span");
+    for (thing of queryThings) {
+        console.log(thing.innerText);
+        queryString+=thing.innerText+" ";
+    }
+    console.log(queryString);
+	mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+    mapboxClient.geocoding
+        .forwardGeocode({
+            query: queryString,
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function(response) {
+            if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) {
+                var feature = response.body.features[0];
 
-    <p>Username: {{username}}</p>
-    <p>Country: {{country}}</p>
-    <p>City: {{city}}</p>
-    <p>ZIP: {{zip}}</p>
-    <p>Address: {{street}}, {{house}}</p>
-   
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: feature.center,
+                    zoom: 10
+                });
+                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+            }
+        });
+</script>
 {{/with}}
-<a href="/plants/add">add a plant</a>
- 
-    </div>
+</div>
