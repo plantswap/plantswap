@@ -1,14 +1,49 @@
   
-<form action="/plants/index" method="post">
+
+ 
+
+ <nav> 
+    <ul>
+        <li class='username'>{{user.username}}❤️</li>
+        <li><a href='/plants/add'>Add Plant</a></li>
+        <li><a href='/plants/index'>Find Plants</a></li>
+        <li><a href='/plants/myplants'>My Plants</a></li>
+        <li><a href='/profile'>Profile</a></li>
+        <li><a href='/auth/logout'>Log Out</a></li>
+    </ul>
+</nav>
+
+
+
+<div class="add-plant-box">
+
+    <h1 class="add-plant-header">Add a new plant</h1>
+
+<form action="/plants/index" method="post" id="add-new-plant" class="add-plant-form">
     <label for="species">Species: </label>
-    <input type="text" name="species" id="species">
+    <input type="text" name="species" id="species" >
+<br>
 
-{{!-- size should be a dropdown --}}
-    <label for="size">Size: </label>
-    <input type="text" name="size" id="size">
+ <div class="add-plant-size">
+    <label for="size">Size: </label> 
+     
+             <select id = "size" name="size"> 
+               <option value = "cutting">cutting</option>
+               <option value = "mature">mature</option>
+             </select>
 
+</div>
+<br>
     <label for="description">Description: </label>
-    <input type="textarea" name="description" id="description">
 
-    <button type="submit">Add a plant</button>
+  <textarea rows = "5" cols = "60" name = "description" id="description"></textarea>
+    {{!-- <input type="textarea" name="description" id="description"  > --}}
+
+
+<br> 
+    <button class="add-plant-button" type="submit">Add a plant</button>
+    
+ 
 </form>
+
+</div>

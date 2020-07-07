@@ -1,12 +1,17 @@
-<nav> 
-        <ul>
-            <li>Find Plants</li>
-            <li>My Plants</li>
-            <li>Profile</li>
-            <li>Log Out</li>
-        </ul>
-    </nav>
-<p>{{user.username}}❤️</p>
+
+        
+    
+ <nav>  
+    <ul>
+        <li class='username'>Hi, {{user.username}} ❤️</li>
+        <li><a href='/plants/add'>Add Plant</a></li>
+        <li><a href='/plants/index'>Find Plants</a></li>
+        <li><a href='/plants/myplants'>My Plants</a></li>
+        <li><a href='/profile'>Profile</a></li>
+        <li><a href='/auth/logout'>Log Out</a></li>
+    </ul>
+</nav>
+
     <div class="myplants">
         
     <h1>My Data</h1>

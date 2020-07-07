@@ -14,7 +14,7 @@ const loginCheck = () => {
 };
 
 router.get('/index', (req, res) => {
-  Plant.find().then(allPlants => {
+  Plant.find().populate('user').then(allPlants => {
     res.render('plants/index', { plants: allPlants });
   }).catch(err => {
     console.log(err);
@@ -42,7 +42,7 @@ router.get('/:plantId', (req, res) => {
   }).catch(err => {
     console.log(err);
   });
-});
+}); 
 
 router.post('/index', loginCheck(), (req, res) => {
   console.log(req.body);
@@ -61,40 +61,5 @@ router.post('/index', loginCheck(), (req, res) => {
   })
 })
 
-// router.get('/books/edit/:bookId', (req, res) => {
-//   Book.findById(req.params.bookId)
-//     .then(book => {
-//       res.render('bookEdit', { book: book })
-//     }).catch(err => {
-//       console.log(err);
-//     });
-// })
-
-// router.get('/books/delete/:bookId', (req, res) => {
-//   Book.deleteOne({ _id: req.params.bookId })
-//     .then(() => {
-//       res.redirect('/books');
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       // next(err)
-//     })
-// })
-
-// router.post('/books/edit/:bookId', (req, res) => {
-//   const { title, author, description, rating } = req.body;
-//   Book.findByIdAndUpdate(req.params.bookId, {
-//     title,
-//     description,
-//     author,
-//     rating
-//   })
-//     .then(book => {
-//       res.redirect(`/books/${book._id}`);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// })
 
 module.exports = router;
