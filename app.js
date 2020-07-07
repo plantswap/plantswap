@@ -99,39 +99,6 @@ passport.use(
   })
 );
 
-// Passport fb strategy setup
-
-// FacebookStrategy = require('passport-facebook').Strategy;
-
-// passport.use(new FacebookStrategy({
-//     clientID: process.env.FACEBOOK_APP_ID,
-//     clientSecret: process.env.FACEBOOK_APP_SECRET,
-//     callbackURL: "http://127.0.0.1:3000/auth/facebook/callback"
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//     User.findOrCreate(function(err, user) {
-//       if (err) { return done(err); }
-//       done(null, user);
-//     });
-//   }
-// ));
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : '611880736200361',
-  //     cookie     : true,
-  //     xfbml      : true,
-  //     version    : 'v7.0'
-  //   });  
-  //   FB.AppEvents.logPageView();   
-  // };
-
-  // (function(d, s, id){
-  //    var js, fjs = d.getElementsByTagName(s)[0];
-  //    if (d.getElementById(id)) {return;}
-  //    js = d.createElement(s); js.id = id;
-  //    js.src = "https://connect.facebook.net/en_US/sdk.js";
-  //    fjs.parentNode.insertBefore(js, fjs);
-  //  }(document, 'script', 'facebook-jssdk'));
 
 
 app.use(passport.initialize());
