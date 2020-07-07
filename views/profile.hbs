@@ -1,19 +1,17 @@
 
 
-    <div class="myplants">
-        
+    <div class="plants-box">
+        <div></div>
     <h1>My Data</h1>
-    {{#each plants}}
-<p class = "list-entry">
-<a href="/plants/{{this._id}}">{{this.species}}</a>
-{{!-- <form action="/movies/{{this._id}}/delete" method="post">
-    <button type="submit">Delete from Database</button>
-</form> --}}
-</p>
-{{/each}}
-    </div>
-<a href="/plants/add">add a plant</a>
+    {{#with user}}
 
-{{#if user}}
-<a href="/auth/logout">Logout</a>
-{{/if}}
+    <p>Username: {{username}}</p>
+    <p>Country: {{country}}</p>
+    <p>City: {{city}}</p>
+    <p>ZIP: {{zip}}</p>
+    <p>Address: {{street}}, {{house}}</p>
+   
+{{/with}}
+<a href="/plants/add">add a plant</a>
+ 
+    </div>

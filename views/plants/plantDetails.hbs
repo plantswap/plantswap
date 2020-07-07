@@ -1,22 +1,36 @@
 
 
-<div class="plant-details">
+<div class="plants-box">
+
 
 {{#with plant}}
-<h2>{{species}}</h2>
-<p>Size: {{size}}</p>
-<p>Description: <i>"{{description}}"</i></p>
-<p>Owner: {{user.username}}</p>
+
+
+
+
+<h1 style="text-align: center;">{{species}}</h1>
+
+<div class="plant-details-size-owner">
+<p style="margin-right: 5%;"><strong>{{size}}</strong></p> 
+<p>by <strong><u>{{user.username}}</u></strong></p>
+</div>
+<div class="plant-details-description">
+<p>{{description}}</p>
+</div>
+
+<div class="edit_buttons">
+<form action="/plants/{{_id}}/edit" method="get">
+    <button class="edit-plant-edit" type="submit">Edit Plant</button>
+</form>
 
 <form action="/plants/{{_id}}/delete" method="post">
-    <button type="submit">Delete plant</button>
+    <button class="edit-plant-delete" type="submit">Delete Plant</button>
 </form>
 
-<form action="/plants/{{_id}}/edit" method="get">
-    <button type="submit">Edit plant</button>
-</form>
+</div>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
+
+<div id='map' style='width: 70%; height: 50%;' class="map"></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
 var map = new mapboxgl.Map({
@@ -26,17 +40,6 @@ center: [-74.5, 40], // starting position [lng, lat]
 zoom: 9 // starting zoom
 });
 </script>
-{{/with}}
-{{!-- <h1 style="text-align: center;">{{species}}</h1>
-
-<div class="plant-details-size-owner">
-<p>{{size}}</p>
-<p>by {{user.username}}</p>
-</div>
-<div class="plant-details-description">
-<p>{{description}}</p>
-</div>
-
-{{/with}} --}}
+{{/with}} 
 
 </div>
