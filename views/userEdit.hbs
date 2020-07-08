@@ -1,23 +1,24 @@
 {{#with user}}
 <div class="intro">
     <div class="intro-text"> 
-    <h2>Edit your data, {{username}} </h2>
+    <h2 class="edit-profile-header">Edit profile: {{username}} </h2>
 <form id="form" action="/profile/edit/{{_id}}" method="POST" class="signup-form"> 
-  <label for="country">Country</label><br />
+  
+  <label for="country">Country:</label><br />
   <input type="country" name="country" value="{{country}}"/>
 <br>
-  <label for="city">City</label><br />
+  <label for="city">City:</label><br />
   <input type="city" name="city" value="{{city}}"/><br />
- <label for="zip">Postal code</label><br />
+ <label for="zip">Postal Code:</label><br />
   <input type="zip" name="zip" value="{{zip}}"/><br />
    <label for="street">Street</label><br />
   <input type="street" name="street" value="{{street}}"/><br />
-   <label for="house">House Number</label><br />
+   <label for="house">House Number:</label><br />
   <input type="house" name="house" value="{{house}}"/>
 <br>
   <div class="signup-form-buttons">
-    <button type="submit">Save changes</button>
-    <button class="cancel" href="/">Cancel</button> 
+    <button type="submit">Save</button>
+    <button class="edit-user-profile-cancel" href="/profile">Cancel</button> 
   </div>
 </form>
 {{/with}}

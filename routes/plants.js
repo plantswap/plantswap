@@ -78,6 +78,7 @@ router.get('/index', (req, res) => {
   const user = req.user;
   Plant.find().populate('user').then(allPlants => {
     res.render('plants/index', { plants: allPlants, user: user });
+    console.log(user)
   }).catch(err => {
     console.log(err);
   })

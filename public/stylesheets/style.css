@@ -1,49 +1,39 @@
 /* GENERAL */
 
 html {
-    font-family: 'Poppins', sans-serif; 
-     
-  
- background-image: url('../images/plant-bg.jpg');
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../images/plant-bg.jpg');
     background-repeat: no-repeat;
-    
-  background-attachment: fixed;
-  background-position: center center;
-  
-  background-size: cover;
-  background-color:lightgreen;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-color: lightgreen;
 }
- 
 
 .header1 {
     margin-left: 5%;
     margin-bottom: 3%;
     text-decoration: underline;
-    font-size: 2.5rem; 
-    }
-    
- 
-.intro {
-    
-    margin-top:15%; 
-    margin-left:23%;
-    margin-right:23%;
-    padding-bottom:2%;
-    background-color:rgba(253,253,253, 0.8);
-    padding:15px;
-    
+    font-size: 2.5rem;
 }
-.intro-text {
-    
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: stretch;
 
+.intro {
+    margin-top: 15%;
+    margin-left: 23%;
+    margin-right: 23%;
+    padding-bottom: 2%;
+    background-color: rgba(253, 253, 253, 0.8);
+    padding: 15px;
 }
- 
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
 
 h1 {
     font-size: 3em;
@@ -58,142 +48,180 @@ h2 {
 }
 
 p {
-   font-size: 1.5em;
-   font-weight: 300;
+    font-size: 1.5em;
+    font-weight: 300;
 }
 
-
-nav { 
-    background-color:rgba(253,253,253, 0.8);
-    color:darkslategrey;
+nav {
+    background-color: rgba(253, 253, 253, 0.8);
+    color: darkslategrey;
+    overflow: hidden;
 }
-  
-nav > ul > li {
-    list-style: none;  
+
+nav>ul>li {
+    list-style: none;
     margin: 2%;
-
 }
 
-.menu-header{
-
-    display:flex;
+.menu-header {
+    display: flex;
     flex-direction: row;
     align-content: space-between;
     justify-content: flex-end;
-
     font-size: 1.2rem;
-    
 }
 
-
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 768px) {
     [class="menu-header"] {
         font-size: 1rem;
     }
-  }
+}
 
-nav > ul > li > a {
+nav>ul>li>a {
     text-decoration: none;
     color: inherit;
-
 }
+
+nav>ul>li>a:hover {
+    background-color: lightgreen;
+}
+
+nav>ul>li>i {
+    display: none;
+}
+
+.map-box {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-self: center;
+}
+
+@media only screen and (max-width: 880px) {
+    [class="map-box"] {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    [class="map-box"] {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
 
 /* AUTHENTICATION */
 
 .intro-buttons {
-    display: flex; 
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: stretch; 
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 }
 
-.intro-buttons > a {
-    margin: 10px; 
-    border:none;
+.intro-buttons>a {
+    margin: 10px;
+    border: none;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.4em;
+    font-size: 1.4em;
     font-weight: 300;
-    width:30%;
+    width: 30%;
     text-decoration: none;
     text-align: center;
 }
 
-.intro-buttons > button {
-    margin: 10px; 
-    border:none;
+.intro-buttons>button {
+    margin: 10px;
+    border: none;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.4em;
+    font-size: 1.4em;
     font-weight: 300;
-    width:50%; 
+    width: 50%;
 }
 
-.intro-buttons > .cancel {
-    margin: 10px; 
-    border:lightgreen solid 1px;
+.intro-buttons>.cancel {
+    margin: 10px;
+    border: lightgreen solid 1px;
     background-color: white;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.4em;
+    font-size: 1.4em;
     font-weight: 300;
-    width:50%;
+    width: 50%;
 }
 
 .signup-form {
-
     font-size: 1.1rem;
     font-weight: 300;
-    
-}
-.signup-form-buttons{
-
-    display: flex;  
-    margin-left:-3%;
 }
 
-.signup-form-buttons > button {
-        margin: 10px; 
-        border:none;
-        background-color: lightgreen;
-        width:5em;
-        height:1.5em;
-        text-decoration: none;
-        text-align: center;
-        font-weight: 300;
-        font-size:1.4rem;
+.signup-form-buttons {
+    display: flex;
+    margin-left: -3%;
+}
 
-} 
+.signup-form-buttons>button {
+    margin: 10px;
+    border: none;
+    background-color: lightgreen;
+    width: 5em;
+    height: 1.5em;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
 
-input { 
+.signup-cancel {
+    margin: 10px;
+    border: 1px lightgreen solid;
+    background-color: white;
+    width: 5em;
+    height: 1.5em;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+input {
     margin-bottom: 4%
- }
+}
 
 .username {
     margin-right: 600px;
 }
- 
+
 
 /* PLANT DETAILS  */
 
-
 .plant-details {
     background-color: white;
-    width:60%;
-    font-size: 0.7rem; 
-    margin-left:20%;
-    height:400px;
+    width: 60%;
+    font-size: 0.7rem;
+    margin-left: 20%;
+    height: 400px;
     padding-top: 1%;
-    margin-top:5%;
+    margin-top: 5%;
 }
 
-.plant-details-size-owner{
-    display:flex;
-    justify-content: center; 
-    
+.plant-details-size-owner {
+    display: flex;
+    justify-content: center;
     font-size: 0.7rem;
     margin-left: 15%;
     margin-right: 15%;
@@ -204,116 +232,93 @@ input {
     text-align: center;
     font-size: 0.7rem;
     margin-left: 15%;
-    margin-right:15%;
+    margin-right: 15%;
 }
 
-
-.my-plant-image{
-
-    width:50%;
-    height:auto%; 
-    
-  display: block;
-  margin-left: auto;
-  margin-right: auto; 
+.my-plant-image {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.edit-plant-edit{
-
-    
-    border:lightgreen solid 1px;
+.edit-plant-edit {
+    border: lightgreen solid 1px;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.1em;
-    font-weight: 300; 
+    font-size: 1.1em;
+    font-weight: 300;
     text-decoration: none;
-    text-align: center; 
-    width:100%;
+    text-align: center;
+    width: 100%;
 }
 
-.edit-plant-delete{
- 
-    border:lightgreen solid 1px;
+.edit-plant-delete {
+    border: lightgreen solid 1px;
     margin-left: 5%;
     background-color: white;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.1em;
-    font-weight: 300; 
+    font-size: 1.1em;
+    font-weight: 300;
     text-decoration: none;
-    text-align: center; 
-    width:100%;
+    text-align: center;
+    width: 100%;
 }
 
-
-
-.map {  
-    margin-left:15%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+.plant-address {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: -2%;
 }
 
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class="map"] {
-      width: 50%;
-    }
-  }
 
 /* MY PLANTS AND FIND PLANTS  */
 
-
-.add-plant-button { 
-    border:none;
+.add-plant-button {
+    border: none;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.3em;
-    font-weight: 300; 
+    font-size: 1.3em;
+    font-weight: 300;
     text-decoration: none;
-    text-align: center; 
+    text-align: center;
 }
 
-.plants-box{
-     width:70%;
-    height:auto;
-    background-color:rgba(253,253,253, 0.85);
-    display:flex;   
+.plants-box {
+    width: 70%;
+    height: auto;
+    background-color: rgba(253, 253, 253, 0.85);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left:15%;
-}
-
-.single-plant {
-    display:flex;
+    margin-left: 15%;
 }
 
 .single-plant-header {
     margin-left: 5%;
     text-decoration: none;
-    font-size:1.4rem;
+    font-size: 1.4rem;
     font-weight: 600;
-
     color: inherit;
-
 }
 
-.single-plant-details{
+.single-plant-details {
     margin-left: 5%;
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 
 
 /* ADD NEW PLANT FORM */
 
 .add-plant-box {
-
-    width:70%;
-    height:600px;
-    background-color:rgba(253,253,253, 0.85);  
-    margin-left:15%;    
+    width: 70%;
+    height: 600px;
+    background-color: rgba(253, 253, 253, 0.85);
+    margin-left: 15%;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
@@ -322,95 +327,137 @@ input {
 }
 
 .add-plant-form {
- 
     margin-top: 5%;
-    
-} 
+}
 
 .add-plant-button {
     margin-top: 5%;
-    border:none;
+    border: none;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.1em;
+    font-size: 1.1em;
     font-weight: 300;
-    width:50%; 
+    width: 50%;
 }
 
-
-.add-plant-box > .add-plant-form > label, input {
+.add-plant-box>.add-plant-form>label,
+input {
     display: block;
 }
 
-
 .add-plant-size {
-    display:flex;  
+    display: flex;
 }
 
-.add-plant-size > #size {
-    margin-left:5%;
+.add-plant-size>#size {
+    margin-left: 5%;
 }
- 
 
-.add-plant-header{
- 
-    font-size: 2.5rem; 
-    margin-left:-10%;
-
+.add-plant-header {
+    font-size: 2.5rem;
+    margin-left: -10%;
 }
 
 
 /* EDIT PLANT FORM */
 
 .edit-plant-header {
-    margin-left:0%;
+    margin-left: 0%;
     text-align: right;
-
-} 
+}
 
 .edit-plant-form {
     font-size: 1.3rem;
 }
 
-.edit-plant-form > form > input {
+.edit-plant-form>form>input {
     font-size: 1.3rem;
 }
 
-
-.edit-plant-form > textarea {
+.edit-plant-form>textarea {
     font-size: 1.3rem;
 }
 
-.edit_buttons{
-    display:flex; 
+.edit-buttons {
+    display: flex;
     justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .edit-plant-cancel {
-     
-    border:1px solid lightgreen;
+    border: 1px solid lightgreen;
     background-color: white;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.3em;
-    font-weight: 300; 
+    font-size: 1.3em;
+    font-weight: 300;
     text-decoration: none;
-    text-align: center; 
-    margin-left:5%;
+    text-align: center;
+    margin-left: 5%;
     margin-top: 2%;
 }
 
-.edit-plant-save{
-
-    border:1px solid lightgreen;
+.edit-plant-save {
+    border: 1px solid lightgreen;
     background-color: lightgreen;
-    color:darkslategrey;
+    color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size:1.3em;
-    font-weight: 300; 
+    font-size: 1.3em;
+    font-weight: 300;
     text-decoration: none;
-    text-align: center; 
-
+    text-align: center;
     margin-top: 2%;
+}
+
+
+/* USER PROFILE */
+
+.user-data {
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-edit {
+    border: 1px solid lightgreen;
+    background-color: lightgreen;
+    color: darkslategrey;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4em;
+    font-weight: 300;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 2%;
+}
+
+
+/* EDIT USER PROFILE */
+
+.signup-form-buttons>.edit-user-profile-cancel {
+    margin: 10px;
+    border: 1px lightgreen solid;
+    background-color: white;
+    width: 5em;
+    height: 1.5em;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.edit-profile-header {
+    margin-bottom: 5%;
+}
+
+.plants-box-ext-user {
+    width: 70%;
+    height: 600px;
+    background-color: rgba(253, 253, 253, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 15%;
 }
