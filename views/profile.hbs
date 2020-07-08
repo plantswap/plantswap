@@ -6,9 +6,9 @@
     <p>City: <span>{{city}} </span></p>
     <p>ZIP: <span>{{zip}} </span></p>
     <p>Address: <span>{{street}}</span>, <span>{{house}}</span></p>
-    {{!-- <form action="/profile/edit/{{_id}}" method="get">
-    <button type="submit">Edit my data</button>
-</form> --}}
+<form action="/profile/{{_id}}/edit" method="get">
+    <button class="edit-plant-edit" type="submit">Edit</button>
+</form>
 <div id="map" style='width: 400px; height: 300px;'></div>
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
