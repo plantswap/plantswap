@@ -1,19 +1,77 @@
 <div class="plants-box">
  
 <h1 class="header1">Browse plants </h1>
+
 <br> 
 
   <input type="text" class="search" placeholder="Search for plants...">
 
     <div class="all-plants">
+ 
+<br>
+<h3>I'm looking for...</h3> 
+<form action="/plants/searchresults" method="get" class="signup-form">
+   <label for="species">plant: </label><br />
+  <input type="species" name="species" placeholder="species" />
+  <label for="city">in: </label><br />
+  <input type="city" name="city" placeholder="city" />
+<br>
+  <div class="signup-form-buttons">
+    <button type="submit">Search</button>
+    <a class="signup-cancel" href="/">Cancel</a> 
+  </div>
+</form> 
 
     {{#each plants}} 
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
     <br>
     <p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a> 📍{{user.city}}
+    <input class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
     </p>
-
     {{/each}}
  
- </div>
+ 
+ </div> 
+
+    <div class="map-box">
+    <div id='map' class="map"></div>
+    </div>
+
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+//draw the map
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [13.444297, 52.561553],
+        zoom: 10
+    });
+    //iterate over plants in the list and set the marker on the map
+    document.querySelectorAll("input.address").forEach(elem=>{
+        console.log(elem.value)
+            mapboxClient.geocoding
+        .forwardGeocode({
+            query: elem.value,
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function(response) {
+            if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) {
+                var feature = response.body.features[0];
+                new mapboxgl.Marker()
+                .setLngLat(feature.center)
+                .addTo(map); 
+            }
+        });
+    })
+</script> 
 </div>

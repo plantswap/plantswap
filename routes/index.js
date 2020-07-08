@@ -57,15 +57,6 @@ router.get('/profiles/:userId', (req, res, next) => {
   }).catch(err => {
     console.log(err);
   })
-  //   console.log("finished with user")
-  // Plant.find({'user': req.params.userId}).populate('user')
-  // .then(plantsFound => {
-  //   console.log("found plants")
-  //   console.log(plantsFound)
-  //   res.render('profileExt', {usersPlants: plantsFound})
-   
-  // }).catch(err => {
-  //   console.log(err);
   })
 })
 
