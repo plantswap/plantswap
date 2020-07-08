@@ -44,6 +44,17 @@ console.log(user)
     });
 })
 
+router.get('/profiles/:userId', (req, res) => {
+  const user = req.user;
+  const differentUser = req.params.userId;
+  User.findById(req.params.userId)
+    .then(userfound => {
+      res.render('profileExt', { userExt: userfound, user: user})
+    }).catch(err => {
+      console.log(err);
+    });
+})
+
 router.get('/', (req, res, next) => {
   const user = req.user;
   res.render('index', { user: user });
