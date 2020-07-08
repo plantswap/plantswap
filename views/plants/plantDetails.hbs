@@ -16,6 +16,8 @@
 <p>{{description}}</p>
 </div>
 
+<img src="{{imgPath}}" alt="My Plant Image" class="my-plant-image">
+
 <div class="edit_buttons">
 <form action="/plants/{{_id}}/edit" method="get">
     <button class="edit-plant-edit" type="submit">Edit Plant</button>
@@ -23,9 +25,11 @@
 
 <form action="/plants/{{_id}}/delete" method="post">
     <button class="edit-plant-delete" type="submit">Delete Plant</button>
+
 </form>
 
 </div>
+
 
 
 <div id='map' style='width: 70%; height: 50%;' class="map"></div>
