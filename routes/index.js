@@ -2,7 +2,7 @@ const express = require('express');
 const uploadCloud = require("../config/cloudinary.js");
 const router = express.Router(); 
 const User = require('../models/User');
-
+const Plant = require('../models/Plant');
 
 //no login check in the index page
 const loginCheck = () => {
@@ -44,15 +44,29 @@ console.log(user)
     });
 })
 
-router.get('/profiles/:userId', (req, res) => {
+router.get('/profiles/:userId', (req, res, next) => {
   const user = req.user;
   const differentUser = req.params.userId;
   User.findById(req.params.userId)
     .then(userfound => {
-      res.render('profileExt', { userExt: userfound, user: user})
-    }).catch(err => {
-      console.log(err);
-    });
+  Plant.find({'user': req.params.userId})
+  .then(plantsFound => {
+    console.log("found plants")
+    console.log(plantsFound)
+    res.render('profileExt', {user: user, usersPlants: plantsFound, userExt: userfound})
+  }).catch(err => {
+    console.log(err);
+  })
+  //   console.log("finished with user")
+  // Plant.find({'user': req.params.userId}).populate('user')
+  // .then(plantsFound => {
+  //   console.log("found plants")
+  //   console.log(plantsFound)
+  //   res.render('profileExt', {usersPlants: plantsFound})
+   
+  // }).catch(err => {
+  //   console.log(err);
+  })
 })
 
 router.get('/', (req, res, next) => {
