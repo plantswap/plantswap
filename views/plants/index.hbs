@@ -1,8 +1,11 @@
 <div class="plants-box">
  
 <h1 class="header1">Browse plants </h1>
-<br>
-<h3>Search for</h3> 
+<br> 
+
+  <input type="text" class="search" placeholder="Search for plants...">
+
+    <div class="all-plants">
 
     {{#each plants}} 
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
@@ -12,4 +15,5 @@
 
     {{/each}}
  
+ </div>
 </div>

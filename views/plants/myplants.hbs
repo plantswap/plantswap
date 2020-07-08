@@ -3,15 +3,27 @@
     <h1 class="header1">My Plants</h1>
 
     
-    {{#each plants}}
+    
+
+
+ <div class="users-plants">
+     {{#each plants}}
 <p class = "list-entry">
-<a  class="single-plant-header" href="/plants/{{this._id}}">{{this.species}}</a>
+    <p><a  class="single-plant-header" href="/plants/{{this._id}}">{{this.species}}</a>
+, {{this.size}}</p>
 {{!-- <form action="/movies/{{this._id}}/delete" method="post">
     <button type="submit">Delete from Database</button>
 </form> --}}
+
+<div class="users-plants-description">
+<p>{{this.description}}</p>
+</div>
 <p>  </p>
 
 </p>
 {{/each}}
+</div>
+{{!-- 
+<button href="/plants/add" class="edit-plant-edit ">Add plant</button> --}}
 
 </div>

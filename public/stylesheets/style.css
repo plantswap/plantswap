@@ -1,463 +1,526 @@
-/* GENERAL */
-
-html {
-    font-family: 'Poppins', sans-serif;
-    background-image: url('../images/plant-bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-color: lightgreen;
-}
-
-.header1 {
-    margin-left: 5%;
-    margin-bottom: 3%;
-    text-decoration: underline;
-    font-size: 2.5rem;
-}
-
-.intro {
-    margin-top: 15%;
-    margin-left: 23%;
-    margin-right: 23%;
-    padding-bottom: 2%;
-    background-color: rgba(253, 253, 253, 0.8);
-    padding: 15px;
-}
-
-.intro-text {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-}
-
-h1 {
-    font-size: 3em;
-    font-weight: 400;
-    margin-bottom: -10px;
-}
-
-h2 {
-    font-size: 2em;
-    font-weight: 400;
-    margin-bottom: -10px;
-}
-
-p {
-    font-size: 1.5em;
-    font-weight: 300;
-}
-
-nav {
-    background-color: rgba(253, 253, 253, 0.8);
-    color: darkslategrey;
-    overflow: hidden;
-}
-
-nav>ul>li {
-    list-style: none;
-    margin: 2%;
-}
-
-.menu-header {
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: flex-end;
-    font-size: 1.2rem;
-}
-
-@media only screen and (max-width: 768px) {
-    [class="menu-header"] {
-        font-size: 1rem;
+    /* GENERAL */
+    
+    html {
+        font-family: 'Poppins', sans-serif;
+        background-image: url('../images/plant-bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        background-color: lightgreen;
     }
-}
+    
+    .header1 {
+        margin-left: 5%;
+        margin-bottom: 3%; 
+        font-size: 2.5rem;
+        display: block;
+        align-self: center;
+    }
+    
+    .intro {
+        margin-top: 15%;
+        margin-left: 23%;
+        margin-right: 23%;
+        padding-bottom: 2%;
+        background-color: rgba(253, 253, 253, 0.8);
+        padding: 15px;
+    }
+    
+    .intro-text {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+    }
+    
+    h1 {
+        font-size: 3em;
+        font-weight: 400;
+        margin-bottom: -10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+        font-weight: 400;
+        margin-bottom: -10px;
+    }
 
-nav>ul>li>a {
-    text-decoration: none;
-    color: inherit;
-}
+    h3{
 
-nav>ul>li>a:hover {
-    background-color: lightgreen;
-}
-
-nav>ul>li>i {
-    display: none;
-}
-
-.map-box {
-    width: 600px;
-    height: 600px;
-    display: flex;
-    align-self: center;
-}
-
-@media only screen and (max-width: 880px) {
-    [class="map-box"] {
-        width: 400px;
+        font-size: 1.5em;
+        font-weight: 400; 
+        margin-left:15%;
+        margin-bottom: -10px;
+    }
+    
+    p {
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+    
+    nav {
+        background-color: rgba(253, 253, 253, 0.8);
+        color: darkslategrey;
+        overflow: hidden;
+    }
+    
+    nav>ul>li {
+        list-style: none;
+        margin: 2%;
+    }
+    
+    .menu-header {
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+        justify-content: flex-end;
+        font-size: 1.2rem;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        [class="menu-header"] {
+            font-size: 1rem;
+        }
+    }
+    
+    nav>ul>li>a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    nav>ul>li>a:hover {
+        background-color: lightgreen;
+    }
+    
+    nav>ul>li>i {
+        display: none;
+    }
+    
+    .map-box {
+        width: 600px;
+        height: auto;
+        display: flex;
+        align-self: center;
+    }
+    
+    @media only screen and (max-width: 880px) {
+        [class="map-box"] {
+            width: 400px;
+            height: auto;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        [class="map-box"] {
+            width: 200px;
+            height: auto;
+        }
+    }
+    
+    .map {
+        width: 100%;
+        height: 100%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    /* AUTHENTICATION */
+    
+    .intro-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+    }
+    
+    .intro-buttons>a {
+        margin: 10px;
+        border: none;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4em;
+        font-weight: 300;
+        width: 30%;
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    .intro-buttons>button {
+        margin: 10px;
+        border: none;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4em;
+        font-weight: 300;
+        width: 50%;
+    }
+    
+    .intro-buttons>.cancel {
+        margin: 10px;
+        border: lightgreen solid 1px;
+        background-color: white;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4em;
+        font-weight: 300;
+        width: 50%;
+    }
+    
+    .signup-form {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    
+    .signup-form-buttons {
+        display: flex;
+        margin-left: -3%;
+    }
+    
+    .signup-form-buttons>button {
+        margin: 10px;
+        border: none;
+        background-color: lightgreen;
+        width: 5em;
+        height: 1.5em;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+    
+    .signup-cancel {
+        margin: 10px;
+        border: 1px lightgreen solid;
+        background-color: white;
+        width: 5em;
+        height: 1.5em;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+    
+    input {
+        margin-bottom: 4%
+    }
+    
+    .username {
+        margin-right: 600px;
+    }
+    /* PLANT DETAILS  */
+    
+    .plant-details {
+        background-color: white;
+        width: 60%;
+        font-size: 0.7rem;
+        margin-left: 20%;
         height: 400px;
+        padding-top: 1%;
+        margin-top: 5%;
     }
-}
-
-@media only screen and (max-width: 600px) {
-    [class="map-box"] {
-        width: 200px;
-        height: 200px;
+    
+    .plant-details-size-owner {
+        display: flex;
+        justify-content: center;
+        font-size: 0.7rem;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 2%;
     }
+
+    .plant-details-size-owner > p > a {
+        text-decoration: underline lightgreen;
+        color: black;
+    }
+    .plant-details-size-owner > p > a:hover{
+     
+            background-color: lightgreen;
+        
+    }
+    
+    .plant-details-description {
+        text-align: center;
+        font-size: 0.7rem;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    
+    .my-plant-image {
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .edit-plant-buttons{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
+
+    .edit-plant-edit {
+        border: lightgreen solid 1px;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .edit-plant-delete {
+        border: lightgreen solid 1px;
+        margin-left: 5%;
+        background-color: white;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .plant-address {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-bottom: -2%;
+    }
+     
+    
+    .plants-box {
+        width: 70%;
+        height: auto;
+        background-color: rgba(253, 253, 253, 0.85);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 15%;
+    }
+
+
+    /* MY PLANTS AND FIND PLANTS  */
+    
+    .single-plant-header {
+        margin-left: 5%;
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: inherit;  
+    } 
+    
+    .single-plant-details {
+        margin-left: 5%;
+        font-size: 1rem;
+    } 
+     
+    
+    .all-plants {
+        display: block;
+    }
+    
+    .all-plants>p>a {
+        text-decoration: underline lightgreen;
+        color: black;
+    }
+    
+    .all-plants>p>a:hover {
+        background-color: lightgreen;
+    }
+
+    .search {
+        width:50%;
+        height:40px;
+        display: flex;
+        align-self: center;
+        background-color: lightgreen;
+        border: none;
+        padding-left: 5% ;
+        opacity: 0.8;
+        
+    }
+
+    .search::placeholder {  
+        color: darkgreen;
+        opacity: 1;  
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+      }
+
+      .add-plant-button {
+
+      }
+  
+    /* PLANT FORM */
+     
+.plant-form{
+
+padding: 1% 10% 2% 10%;
+margin-left:10%;
+margin-right:10%;
+background-color: rgba(253, 253, 253, 0.8);
+margin-bottom: 3%;
+ 
+}
+ 
+
+
+.plant-form-description {
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    max-width: 90%;
+    background-color: transparent;
+    border: 1px solid lightgreen;
+    margin-top:3%;
+    font-weight: 300;
+    padding:1%;
 }
 
-.map {
-    width: 100%;
-    height: 100%;
-    margin-top: 3%;
+
+ 
+.plant-form-buttons{
+display: flex ;
+justify-content: center;
+}
+
+textarea { resize: none; }
+ 
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+    border: 1px solid lightgreen;
+    border-radius: 2px;
+    margin-right: 2rem;
     margin-bottom: 3%;
-}
+    padding: 0.5rem;
+    padding-right: 2rem;
+  }
 
+  select > option {
+      color:red
 
-/* AUTHENTICATION */
+  } 
 
-.intro-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-}
+  
+.plant-form-save{
 
-.intro-buttons>a {
-    margin: 10px;
-    border: none;
-    background-color: lightgreen;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
-    font-weight: 300;
-    width: 30%;
-    text-decoration: none;
-    text-align: center;
-}
-
-.intro-buttons>button {
-    margin: 10px;
-    border: none;
-    background-color: lightgreen;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
-    font-weight: 300;
-    width: 50%;
-}
-
-.intro-buttons>.cancel {
-    margin: 10px;
-    border: lightgreen solid 1px;
-    background-color: white;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
-    font-weight: 300;
-    width: 50%;
-}
-
-.signup-form {
-    font-size: 1.1rem;
-    font-weight: 300;
-}
-
-.signup-form-buttons {
-    display: flex;
-    margin-left: -3%;
-}
-
-.signup-form-buttons>button {
-    margin: 10px;
-    border: none;
-    background-color: lightgreen;
-    width: 5em;
-    height: 1.5em;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.4rem;
-}
-
-.signup-cancel {
-    margin: 10px;
-    border: 1px lightgreen solid;
-    background-color: white;
-    width: 5em;
-    height: 1.5em;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.4rem;
-}
-
-input {
-    margin-bottom: 4%
-}
-
-.username {
-    margin-right: 600px;
-}
-
-
-/* PLANT DETAILS  */
-
-.plant-details {
-    background-color: white;
-    width: 60%;
-    font-size: 0.7rem;
-    margin-left: 20%;
-    height: 400px;
-    padding-top: 1%;
-    margin-top: 5%;
-}
-
-.plant-details-size-owner {
-    display: flex;
-    justify-content: center;
-    font-size: 0.7rem;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
-}
-
-.plant-details-description {
-    text-align: center;
-    font-size: 0.7rem;
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-.my-plant-image {
-    width: 50%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.edit-plant-edit {
-    border: lightgreen solid 1px;
-    background-color: lightgreen;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
-}
-
-.edit-plant-delete {
-    border: lightgreen solid 1px;
-    margin-left: 5%;
-    background-color: white;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
-}
-
-.plant-address {
-    font-size: 0.8rem;
-    text-align: center;
-    margin-bottom: -2%;
-}
-
-
-/* MY PLANTS AND FIND PLANTS  */
-
-.add-plant-button {
-    border: none;
-    background-color: lightgreen;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3em;
-    font-weight: 300;
-    text-decoration: none;
-    text-align: center;
-}
-
-.plants-box {
-    width: 70%;
-    height: auto;
-    background-color: rgba(253, 253, 253, 0.85);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 15%;
-}
-
-.single-plant-header {
-    margin-left: 5%;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: inherit;
-}
-
-.single-plant-details {
-    margin-left: 5%;
-    font-size: 1rem;
-}
-
-
-/* ADD NEW PLANT FORM */
-
-.add-plant-box {
-    width: 70%;
-    height: 600px;
-    background-color: rgba(253, 253, 253, 0.85);
-    margin-left: 15%;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-
-.add-plant-form {
-    margin-top: 5%;
-}
-
-.add-plant-button {
-    margin-top: 5%;
-    border: none;
-    background-color: lightgreen;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    width: 50%;
-}
-
-.add-plant-box>.add-plant-form>label,
-input {
-    display: block;
-}
-
-.add-plant-size {
-    display: flex;
-}
-
-.add-plant-size>#size {
-    margin-left: 5%;
-}
-
-.add-plant-header {
-    font-size: 2.5rem;
-    margin-left: -10%;
-}
-
-
-/* EDIT PLANT FORM */
-
-.edit-plant-header {
-    margin-left: 0%;
-    text-align: right;
-}
-
-.edit-plant-form {
-    font-size: 1.3rem;
-}
-
-.edit-plant-form>form>input {
-    font-size: 1.3rem;
-}
-
-.edit-plant-form>textarea {
-    font-size: 1.3rem;
-}
-
-.edit-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-.edit-plant-cancel {
-    border: 1px solid lightgreen;
-    background-color: white;
-    color: darkslategrey;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3em;
-    font-weight: 300;
-    text-decoration: none;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 2%;
-}
-
-.edit-plant-save {
     border: 1px solid lightgreen;
     background-color: lightgreen;
     color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 300;
     text-decoration: none;
     text-align: center;
     margin-top: 2%;
+    width: auto;
+    margin-right:2%;
 }
 
 
-/* USER PROFILE */
+.plant-form-cancel{
 
-.user-data {
-    font-size: 0.7rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-edit {
     border: 1px solid lightgreen;
-    background-color: lightgreen;
+    background-color: white;
     color: darkslategrey;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 300;
     text-decoration: none;
     text-align: center;
     margin-top: 2%;
+    padding:1px 35px;
 }
 
 
-/* EDIT USER PROFILE */
 
-.signup-form-buttons>.edit-user-profile-cancel {
-    margin: 10px;
-    border: 1px lightgreen solid;
-    background-color: white;
-    width: 5em;
-    height: 1.5em;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.4rem;
-}
+     
+    /* USER PROFILE */
+    
+    .user-data {
+        font-size: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left:5%;
+    }
+    
+    .profile-edit {
+        border: 1px solid lightgreen;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4em;
+        font-weight: 300;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 2%;
+    }
 
-.edit-profile-header {
-    margin-bottom: 5%;
-}
+    .users-plants{
+        margin-left:15%
+    }
 
-.plants-box-ext-user {
-    width: 70%;
-    height: 600px;
-    background-color: rgba(253, 253, 253, 0.85);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 15%;
-}
+    .users-plants >p >a{
+        text-decoration: underline 1px lightgreen;
+        color:black;
+        font-weight: 600;
+    } 
+
+    .users-plants >p >a:hover{
+
+        background-color: lightgreen;
+    }
+    .users-plants-description{
+        font-size:0.7em;
+        margin-top:-2%;
+        margin-left: 3%;
+    }
+
+    .profile-map{
+       width: 400px; 
+       height: 300px;
+       margin-top: 3%;
+       margin-bottom: 5%; 
+       margin-left:20%;
+    }
+
+    /* EDIT USER PROFILE */
+    
+    .signup-form-buttons>.edit-user-profile-cancel {
+        margin: 10px;
+        border: 1px lightgreen solid;
+        background-color: white;
+        width: 5em;
+        height: 1.5em;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+    
+    .edit-profile-header {
+        margin-bottom: 5%;
+    }
+    
+    .plants-box-ext-user {
+        width: 70%;
+        height: auto;
+        background-color: rgba(253, 253, 253, 0.85);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 15%;
+    }
