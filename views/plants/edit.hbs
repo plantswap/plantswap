@@ -3,7 +3,7 @@
 <div class="edit-plant-form">
 
 {{#with plant}}
-<form action="/plants/edit/{{_id}}" method="post">
+<form action="/plants/edit/{{_id}}" enctype="multipart/form-data" method="post">
     <label for="species">Species: </label>
     <input type="text" name="species" id="species" value="{{species}}">
  <div class="add-plant-size">
@@ -17,13 +17,19 @@
   <br>
 <textarea rows = "5" cols = "60" name = "description" id="description" value="{{description}}">{{description}}</textarea>
   
+<label>Photo</label>
 
+      <input type="file" name="photo">
+
+<br> 
+    
 
 <div class="edit_buttons">
-    <button type="submit" class="edit-plant-save">Save</button>
-    <button class="edit-plant-cancel">Cancel</button>
-    </div>
+    <button type="submit" class="edit-plant-save" value="SAVE">Save</button>
+   
 </form>
+ <a class="edit-plant-cancel" href="/plants/{{_id}}">Cancel</a>
+    </div>
 {{/with}}
 </div>
 

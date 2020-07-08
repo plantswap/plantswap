@@ -25,12 +25,16 @@ router.get('/:plantId/edit', (req, res) => {
     });
 })
 
-router.post('/edit/:plantId', (req, res) => {
+router.post('/edit/:plantId', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
   Plant.findByIdAndUpdate(req.params.plantId, {
     species,
     size,
-    description
+    description,
+    imgName,
+    imgPath
   })
     .then(plant => {
       res.redirect(`/plants/${plant._id}`);
