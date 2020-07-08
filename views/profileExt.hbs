@@ -6,17 +6,27 @@
 
 <div class="plants-box-ext-user">
     {{#with userExt}}
-
+   
+    
     <div class="user-data"> 
     <h1>{{username}}</h1>
     <p> <span>📍{{country}} </span>, <span>{{city}} </span>, <span>{{zip}} </span>, <span>{{street}}</span>,  <span>{{house}}</span></p>
-  
     </div>
+     
+    {{/with}}
+    
+    
+<h2>user's plants:</h2>
+{{#each usersPlants}}
+<p>{{this.species}}</p>
+{{/each}}
 
 <div class="map-box">
 <div id="map" style='width: 600px; height: 400px;'  class="map"></div>
 </div>
+ 
 
+ 
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
@@ -55,7 +65,6 @@
             }
         });
 </script>
-{{/with}}
 </div>
 
 
