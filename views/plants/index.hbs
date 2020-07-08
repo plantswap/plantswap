@@ -1,19 +1,14 @@
- 
-
-
 <div class="plants-box">
 
-<h1 class="header1">Browse plants </h1>
-<br>
+    <h1 class="header1">Browse plants </h1>
+    <br>
 
-{{#each plants}}
+    {{#each plants}} 
+    <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
+    <br>
+    <p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a> 📍{{user.city}}
+    </p>
 
-<div class="single-plant"> 
-<a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
-<p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a></p>
-<p class="single-plant-details">{{city}}</p>
+    {{/each}}
+ 
 </div>
-{{/each}}
-
-</div> 
-

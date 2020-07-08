@@ -1,15 +1,22 @@
 <div class="plants-box">
-    <h1>My Data</h1>
+  
     {{#with user}}
-    <h3>Username: {{username}}</h3>
-    <p>Country: <span>{{country}} </span></p>
-    <p>City: <span>{{city}} </span></p>
-    <p>ZIP: <span>{{zip}} </span></p>
-    <p>Address: <span>{{street}}</span>, <span>{{house}}</span></p>
+
+
+    <div class="user-data"> 
+  <h1>My Profile</h1>
+    <h2>{{username}}</h2>
+    <p> <span>📍{{country}} </span>, <span>{{city}} </span>, <span>{{zip}} </span>, <span>{{street}}</span>,  <span>{{house}}</span></p>
+  
+
 <form action="/profile/{{_id}}/edit" method="get">
-    <button class="edit-plant-edit" type="submit">Edit</button>
+    <button class="profile-edit" type="submit">Edit</button>
 </form>
-<div id="map" style='width: 400px; height: 300px;'></div>
+<div id="map" style='width: 400px; height: 300px;' class="map"></div>
+  </div>
+
+
+
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
