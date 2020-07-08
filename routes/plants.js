@@ -15,7 +15,6 @@ const loginCheck = () => {
 };
 
 router.get('/:plantId/edit', (req, res) => {
-
   const user = req.user;
   Plant.findById(req.params.plantId)
     .then(plant => {
@@ -53,6 +52,22 @@ router.post('/:plantId/delete', (req, res) => {
     console.log(err);
   })
 })
+
+router.get('/searchresults', (req, res) => {
+    const user = req.user;
+    Plant.find().populate('user')
+    .then(allPlants => {
+      let plantResults = allPlants.filter(plant=>plant
+        .species
+        .toLowerCase()
+        .includes(req.query.species.toLowerCase()) && plant.user.city.toLowerCase()==req.query.city.toLowerCase()
+        )
+      res.render('plants/index', { plants: plantResults, user: user });
+      console.log(user)
+    }).catch(err => {
+      console.log(err);
+    })
+  });
 
 router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
@@ -103,7 +118,14 @@ router.get('/:plantId', (req, res) => {
   const user = req.user;
   const plantId = req.params.plantId;
   Plant.findById(plantId).populate('user').then(plant => {
-    res.render('plants/plantDetails', { plant: plant, user: user });
+    console.log(typeof plant.user._id, user._id)
+    if (user._id.toString() == plant.user._id.toString()) {
+      console.log("user is owner")
+      res.render('plants/myPlantDetails', { plant: plant, user: user });
+    } else {
+      res.render('plants/plantDetails', { plant: plant, user: user });
+    }
+
   }).catch(err => {
     console.log(err);
   });
