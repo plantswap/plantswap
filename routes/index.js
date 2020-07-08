@@ -1,5 +1,11 @@
 const express = require('express');
-const router = express.Router();
+// //cloudinary 
+const Plant = require("../models/Plant.js");
+const uploadCloud = require("../config/cloudinary.js");
+
+const router = express.Router(); 
+
+
 
 //no login check in the index page
 const loginCheck = () => {
@@ -24,3 +30,5 @@ router.get('/profile', loginCheck(), (req, res) => {
 });
 
 module.exports = router;
+
+

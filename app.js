@@ -16,6 +16,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
+//MONGODB_URI=mongodb://heroku_hss166d3:1p4f85jdfv7d67kbobksp97s5i@ds229388.mlab.com:29388/heroku_hss166d3
 
 mongoose
   .connect(process.env.MONGODB_URI||'mongodb://localhost/plantswap', { useNewUrlParser: true })
