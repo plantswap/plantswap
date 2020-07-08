@@ -1,15 +1,22 @@
-<div class="plants-box">
+
+
+
+
+
+
+<div class="plants-box-ext-user">
     {{#with userExt}}
-    <h1> Data</h1>
-    <h3>Username: {{username}}</h3>
-    <p>Country: <span>{{country}} </span></p>
-    <p>City: <span>{{city}} </span></p>
-    <p>ZIP: <span>{{zip}} </span></p>
-    <p>Address: <span>{{street}}</span>, <span>{{house}}</span></p>
-<form action="/profile/{{_id}}/edit" method="get">
-    <button class="edit-plant-edit" type="submit">Edit</button>
-</form>
-<div id="map" style='width: 400px; height: 300px;'></div>
+
+    <div class="user-data"> 
+    <h1>{{username}}</h1>
+    <p> <span>📍{{country}} </span>, <span>{{city}} </span>, <span>{{zip}} </span>, <span>{{street}}</span>,  <span>{{house}}</span></p>
+  
+    </div>
+
+<div class="map-box">
+<div id="map" style='width: 600px; height: 400px;'  class="map"></div>
+</div>
+
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
@@ -50,3 +57,12 @@
 </script>
 {{/with}}
 </div>
+
+
+
+{{#each plants}}
+
+<p class = "list-entry">
+<a  class="single-plant-header" href="/plants/{{this._id}}">{{this.species}}</a>
+
+{{/each}}
