@@ -13,7 +13,13 @@ size: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-});
+  imgName: String,
+  imgPath: String
+},
+{
+  timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }
+}
+);
 
 const Plant = mongoose.model('Plant', plantSchema);
 

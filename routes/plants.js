@@ -2,6 +2,7 @@ const express = require('express');
 const Plant = require('../models/Plant');
 const User = require('../models/User');
 const router = express.Router();
+const uploadCloud = require("../config/cloudinary");
 
 const loginCheck = () => {
   return (req, res, next) => {
@@ -49,13 +50,17 @@ router.post('/:plantId/delete', (req, res) => {
   })
 })
 
-router.post('/index', loginCheck(), (req, res) => {
+router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
   Plant.create({
     species,
     size,
     description,
-    user: req.user._id
+    user: req.user._id,
+    imgName,
+    imgPath
   }).then(plant => {
     console.log(`Success! ${species} was added to the database.`);
     res.redirect(`/plants/myplants`);
@@ -98,5 +103,23 @@ router.get('/:plantId', (req, res) => {
     console.log(err);
   });
 }); 
+
+
+// ADDING PHOTOS 
+
+router.post("/plants/add", uploadCloud.single("photo"), (req, res, next) => {
+  const { title, description } = req.body;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
+
+  Movie.create({ title, description, imgPath, imgName })
+    .then(movie => {
+      res.redirect("/");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 
 module.exports = router;

@@ -1,6 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const uploadCloud = require("../config/cloudinary.js");
+const router = express.Router(); 
 const User = require('../models/User');
+
 
 //no login check in the index page
 const loginCheck = () => {
@@ -53,3 +55,5 @@ router.get('/profile', loginCheck(), (req, res) => {
 });
 
 module.exports = router;
+
+
