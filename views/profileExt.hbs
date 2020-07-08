@@ -1,30 +1,43 @@
 
-
-
-
-
-
+ 
 <div class="plants-box-ext-user">
+
+
     {{#with userExt}}
-   
     
+
+    <h1 class="header1">{{username}}</h1>
+
+
+
+   
+<h3>{{username}}'s plants:</h3>
+ {{/with}}
+ <div class="users-plants">
+{{#each usersPlants}}
+<p><a href="/plants/{{this._id}}">{{this.species}}</a>, {{this.size}}</p>
+<div class="users-plants-description">
+<p>{{this.description}}</p>
+</div>
+{{/each}}
+</div>
+
+    {{#with userExt}}
+    
+
+
     <div class="user-data"> 
-    <h1>{{username}}</h1>
     <p> <span>📍{{country}} </span>, <span>{{city}} </span>, <span>{{zip}} </span>, <span>{{street}}</span>,  <span>{{house}}</span></p>
     </div>
      
-    {{/with}}
-    
-    
-<h2>user's plants:</h2>
-{{#each usersPlants}}
-<p>{{this.species}}</p>
-{{/each}}
 
 <div class="map-box">
 <div id="map" style='width: 600px; height: 400px;'  class="map"></div>
 </div>
- 
+     
+    
+ {{/with}}
+   
 
  
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
@@ -68,10 +81,4 @@
 </div>
 
 
-
-{{#each plants}}
-
-<p class = "list-entry">
-<a  class="single-plant-header" href="/plants/{{this._id}}">{{this.species}}</a>
-
-{{/each}}
+ 

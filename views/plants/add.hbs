@@ -1,38 +1,49 @@
-  
+<div class="plants-box">
 
- 
-<div class="add-plant-box">
+  <h1 class="header1">Add a new plant</h1>
 
-    <h1 class="add-plant-header">Add a new plant</h1>
+  <div class="plant-form">
 
-<form action="/plants/index" method="post" enctype="multipart/form-data" id="add-new-plant" class="add-plant-form">
-    <label for="species">Species: </label>
-    <input type="text" name="species" id="species" >
-<br>
+    <form action="/plants/index" method="post" enctype="multipart/form-data" id="add-new-plant">
 
- <div class="add-plant-size">
-    <label for="size">Size: </label> 
+      <label for="species">Species: </label>
+
+       
+      <input class="plant-form-description" id="description" type="text" name="species" id="species">
      
-             <select id = "size" name="size"> 
-               <option value = "cutting">cutting</option>
-               <option value = "mature">mature</option>
-             </select>
-
-</div>
-<br>
-    <label for="description">Description: </label>
-
-  <textarea rows = "5" cols = "60" name = "description" id="description"></textarea>
-    {{!-- <input type="textarea" name="description" id="description"  > --}}
-<br>
-<label>Photo</label>
-
-      <input type="file" name="photo">
-
-<br> 
-    <button class="add-plant-button" type="submit" value="SAVE">Add a plant</button>
-    
+ <br>
+        <label for="size">Size: </label>
+       
+        <select class="plant-form-size"  id="size" name="size">
+          <option value="cutting">cutting</option>
+          <option value="mature">mature</option>
+        </select>
  
-</form>
+       
+<br>
+      <label for="description">Description: </label>
+      <br>
+      <textarea rows="5" cols="60" class="plant-form-description" name="description" id="description"></textarea>
+    
+        <br>
+        <br>
+
+      <label>↻ Upload an Image</label>
+
+      <input   type="file" name="photo">
+
+      <br>
+
+
+      <div class="plant-form-buttons">
+        <button class="plant-form-save" type="submit" value="SAVE">Add a plant</button>
+
+
+    </form>
+ 
+
+  <a class="plant-form-cancel" href="/plants/{{_id}}">Cancel</a>
+ </div>
+</div>
 
 </div>

@@ -1,6 +1,13 @@
 <div class="plants-box">
  
 <h1 class="header1">Browse plants </h1>
+
+<br> 
+
+  <input type="text" class="search" placeholder="Search for plants...">
+
+    <div class="all-plants">
+ 
 <br>
 <h3>I'm looking for...</h3> 
 <form action="/plants/searchresults" method="get" class="signup-form">
@@ -13,7 +20,7 @@
     <button type="submit">Search</button>
     <a class="signup-cancel" href="/">Cancel</a> 
   </div>
-</form>
+</form> 
 
     {{#each plants}} 
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
@@ -22,6 +29,9 @@
     <input class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
     </p>
     {{/each}}
+ 
+ 
+ </div> 
 
     <div class="map-box">
     <div id='map' class="map"></div>
@@ -63,5 +73,5 @@
             }
         });
     })
-</script>
+</script> 
 </div>

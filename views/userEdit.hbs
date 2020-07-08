@@ -1,9 +1,14 @@
-{{#with user}}
-<div class="intro">
+
+<div class="intro" style="margin-top: 5%;">
+  
     <div class="intro-text"> 
+      {{#with user}}
     <h2 class="edit-profile-header">Edit profile: {{username}} </h2>
 <form id="form" action="/profile/edit/{{_id}}" method="POST" class="signup-form"> 
-  
+   <label for="email">Email:</label><br />
+  <input type="email" name="email" value="{{email}}"/>
+<br>
+
   <label for="country">Country:</label><br />
   <input type="country" name="country" value="{{country}}"/>
 <br>
@@ -22,3 +27,6 @@
   </div>
 </form>
 {{/with}}
+</div>
+
+</div>
