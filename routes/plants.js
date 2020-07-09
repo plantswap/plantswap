@@ -140,15 +140,13 @@ router.get('/:plantId', (req, res) => {
   }).catch(err => {
     console.log(err);
   });
-}); 
-
-
-// ADDING PHOTOS 
+});  
+ 
 
 router.post("/plants/add", uploadCloud.single("photo"), (req, res, next) => {
   const { title, description } = req.body;
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
-});
+}); 
 
 module.exports = router;
