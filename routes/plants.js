@@ -52,27 +52,54 @@ router.post('/:plantId/delete', (req, res) => {
     console.log(err);
   })
 })
+ 
 
-router.get('/searchresults', (req, res) => {
+  router.get('/searchresults', (req, res) => {
     const user = req.user;
+    console.log(req.query.city, req.query.species)
     Plant.find().populate('user')
     .then(allPlants => {
-      let plantResults = allPlants.filter(plant=>plant
-        .species
-        .toLowerCase()
-        .includes(req.query.species.toLowerCase()) && plant.user.city.toLowerCase()==req.query.city.toLowerCase()
+      let plantResults
+      if (req.query.city) {
+        plantResults = allPlants.filter(plant=>plant
+          .species
+          .toLowerCase()
+          .includes(req.query.species.toLowerCase()) 
+          && plant.user.city.toLowerCase()==req.query.city.toLowerCase()
+          )
+      } else {
+        plantResults = allPlants.filter(plant=>plant
+          .species
+          .toLowerCase()
+          .includes(req.query.species.toLowerCase()) 
         )
-      res.render('plants/index', { plants: plantResults, user: user });
+      }
+      res.render('plants/index', { plants: plantResults, user: user, city: req.query.city||user.city });
       console.log(user)
     }).catch(err => {
       console.log(err);
     })
   });
 
+
 router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
+ 
+  /// How do I make the below work?
+
+
+  if (species.length === '') {
+    console.log("species not specified")
+    res.render('plants/add', {
+      message: 'Please add the species '
+    });
+    return;
+  }
+
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
+
+
   Plant.create({
     species,
     size,

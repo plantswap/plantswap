@@ -1,7 +1,6 @@
 
 
-<div class="plants-box">
-I am the owner
+<div class="plants-box"> 
 
 {{#with plant}}
 
@@ -10,33 +9,40 @@ I am the owner
 
 <div class="plant-details-size-owner">
 <p style="margin-right: 5%;"><strong>{{size}}</strong></p> 
-<p>by <strong><u><a href="/profiles/{{user._id}}">{{user.username}}</a></u></strong></p>
+
+{{!-- <p>by <strong><u><a href="/profiles/{{user._id}}">{{user.username}}</a></u></strong></p> --}}
+<p>created by me</p>
 </div>
 <div class="plant-details-description">
-<p>{{description}}</p>
-<p>Can be picked up in <span>{{user.street}} {{user.house}}, {{user.zip}} {{user.city}}, {{user.country}}</span>.</p>
-<p>Contact {{user.username}} for further details.</p>
-</div> 
+<p>{{description}}</p></div> 
 
 <img src="{{imgPath}}" alt="" class="my-plant-image">
-</div>
-<div class="edit_buttons">
+<p></p>
+<div class="edit-plant-buttons">
 <form action="/plants/{{_id}}/edit" method="get">
     <button class="edit-plant-edit" type="submit">Edit Plant</button>
 </form>
 <form action="/plants/{{_id}}/delete" method="post">
     <button class="edit-plant-delete" type="submit">Delete Plant</button>
 </form>
+</div>
 
 
+{{/with}} 
+ 
+
+</div>
+ 
+{{!-- MAP --}}
+
+{{!-- 
 <div class="plant-address">
 
     <p>📍{{user.country}} {{user.city}}, {{user.street}}, {{user.house}}</p>
 </div>
-
-
+ 
  <div class="map-box">
-<div id='map' class="map"></div>
+<div id='map' class="profile-map"></div>
  </div>
 
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
@@ -77,17 +83,4 @@ I am the owner
         });
  
 </script>
-{{/with}} 
-
-<div class="edit-buttons">
-<form action="/plants/{{_id}}/edit" method="get">
-    <button class="edit-plant-edit" type="submit">Edit Plant</button>
-</form>
-
-<form action="/plants/{{_id}}/delete" method="post">
-    <button class="edit-plant-delete" type="submit">Delete Plant</button>
-</form>
-
-</div>
-
-</div>
+ --}}

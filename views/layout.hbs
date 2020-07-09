@@ -10,22 +10,22 @@
     <link rel="icon" type="image/png" href="/img/plantswap-logo.png"/>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
 </head>
 <body>
 
       
  <nav>  
+
+   <div class="topnav" id="myTopnav">
     <ul class="menu-header">
-
-      <li><a href='/plants/index'>Find Plants</a></li>
-      
-        {{#if user}}
-        <li class='username'>Hi, {{user.username}} ❤️</li>
-       
+ {{#if user}}
+      <li class='username'>Hi, {{user.username}} ❤️</li>
         
+        
+         <li><a href='/plants/index'>Find Plants</a></li>
         <li><a href='/plants/add'>Add Plant</a></li>
-
         <li><a href='/plants/myplants'>My Plants</a></li>
         <li><a href='/profile'>Profile</a></li>
         <li><a href='/auth/logout'>Log Out</a></li>
@@ -34,13 +34,16 @@
         <li> <a href="/auth/signup">Signup</a></li>
         <li><a href="/auth/login">Login</a></li>
         {{/if}}
-        <li>
-         <i class="fa fa-bars"></i></li>
+        
+   
     </ul>
+
+    </div>
 </nav>
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+ 
 </body>
 </html>

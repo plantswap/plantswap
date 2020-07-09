@@ -28,8 +28,9 @@ router.get('/profile/:userId/edit', (req, res) => {
 router.post('/profile/edit/:userId', (req, res) => {
   const user = req.user;
 console.log(user)
-  const {country, city, zip, street, house} = req.body;
+  const {email, country, city, zip, street, house} = req.body;
   User.findByIdAndUpdate(req.params.userId, {
+    email,
     country, 
     city, 
     zip, 
