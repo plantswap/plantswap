@@ -333,6 +333,25 @@
 
 
     /* MY PLANTS AND FIND PLANTS  */
+
+    .add-plant-button {
+
+
+        border: lightgreen solid 1px;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+        font-weight: 300;
+        text-decoration: none;
+        text-align: center;
+        width: auto;
+        display: flex;
+        align-self: center;
+        margin-bottom: 5%;
+        padding:1%;
+
+    }
     
     .single-plant-header { 
         text-decoration: none;
@@ -409,24 +428,22 @@
     .search-results > .plant-list > .single-plant-details >  a:hover{
     background-color: lightgreen;
     }
- 
+
 
       .search-map {
-        max-width: 400px; 
-        height: 400px;
+        max-width: auto; 
+        height: 500px;
+        margin-bottom: 5%;
       }
 
 
-    @media only screen and (max-width: 1200px) {
+
+    @media only screen and (max-width: 2000px) {
 
         [class="search-results"]{
             display: block;
         }
 
-        [class="search-map"]{
-            max-width: 200px; 
-            height: auto;
-        }
     }
     
     @media only screen and (max-width: 600px) {
@@ -434,10 +451,11 @@
     }
 
     div.mapboxgl-marker.mapboxgl-marker-anchor-center{
-         
+          
     }
 
     div.mapboxgl-marker.mapboxgl-marker-anchor-center > svg {
+ 
         
     }
 

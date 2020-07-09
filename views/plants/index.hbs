@@ -87,8 +87,12 @@ let response = await mapboxClient.geocoding
             ) {
                 var feature = response.body.features[0];
                 new mapboxgl.Marker()
-                .setLngLat(feature.center)
-                .addTo(map); 
+                let marker = new mapboxgl.Marker();
+
+                marker.setLngLat(feature.center)
+                marker.addTo(map); 
+
+                marker.getElement().addEventListener("click", event)
                 const popup = new mapboxgl.Popup()
                 popup.setLngLat(feature.center) 
                 popup.setMaxWidth("300px")
