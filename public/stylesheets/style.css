@@ -19,7 +19,7 @@
     }
     
     .intro {
-        margin-top: 15%;
+        margin-top: 5%;
         margin-left: 23%;
         margin-right: 23%;
         padding: 5%;
@@ -85,7 +85,19 @@
             font-size: 1rem;
         }
     }
-    
+
+    .topnav{
+        display:flex;
+        justify-content: space-around;
+    }
+
+
+    nav > .topnav > .username {
+        margin-top: 40px;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
     nav>.topnav>ul>li>a {
         text-decoration: none;
         color: inherit;
@@ -94,9 +106,13 @@
     nav>.topnav>ul>li>a:hover {
         background-color: lightgreen;
     }
-    
-    nav>.topnav>ul>li>i {
-        display: none;
+     
+
+    nav>.topnav>ul {
+        width:40%;
+    }
+    nav>.topnav>ul>li {
+        width:100%;
     }
     
     .map-box {
@@ -227,9 +243,6 @@
         margin-bottom: 4%
     }
     
-    .username {
-        margin-right: 600px;
-    }
     /* PLANT DETAILS  */
     
     .plant-details {
@@ -262,7 +275,7 @@
     
     .contact-button{
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 300;
         background-color: lightgreen;
         color:black;
         padding:1%;
@@ -333,6 +346,25 @@
 
 
     /* MY PLANTS AND FIND PLANTS  */
+
+    .add-plant-button {
+
+
+        border: lightgreen solid 1px;
+        background-color: lightgreen;
+        color: darkslategrey;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+        font-weight: 300;
+        text-decoration: none;
+        text-align: center;
+        width: auto;
+        display: flex;
+        align-self: center;
+        margin-bottom: 5%;
+        padding:1%;
+
+    }
     
     .single-plant-header { 
         text-decoration: none;
@@ -395,8 +427,6 @@
     .search-results{
         display:flex;
         justify-content: space-around;
-        
-
     }
 
     .plant-list{
@@ -412,33 +442,61 @@
     background-color: lightgreen;
     }
 
-    .search-map-box {
-        padding-right:5%;
-      display: flex;
-      width:700px;
-      height: 600px;
-    }
 
       .search-map {
-        width: 700px;
-         height:100%;
+        max-width: auto; 
+        height: 500px;
+        margin-bottom: 5%;
       }
 
 
-    @media only screen and (max-width: 880px) {
+
+    @media only screen and (max-width: 2000px) {
 
         [class="search-results"]{
             display: block;
         }
+
     }
     
     @media only screen and (max-width: 600px) {
       
     }
 
-    .mapboxgl-popup > .mapboxgl-popup-anchor-bottom {
-
+    div.mapboxgl-marker.mapboxgl-marker-anchor-center{
+          
     }
+
+    div.mapboxgl-marker.mapboxgl-marker-anchor-center > svg {
+ 
+        
+    }
+
+    div.mapboxgl-popup-tip{
+        display: none;
+    }
+    div.mapboxgl-popup-content{
+        display: none;
+        background-color: rgba(144, 238, 144, 0.8);
+        padding: 5% 5% 0% 5%;
+        width:60%;
+    }
+    
+    .mapboxgl-popup-content > a {
+        text-decoration: underline 2px solid black;
+        color:black;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+
+    .mapboxgl-popup-content > p {
+         color:black;
+        font-size: 0.7rem;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+
 
     /* PLANT FORM */
      
@@ -489,11 +547,7 @@ select {
     padding: 0.5rem;
     padding-right: 2rem;
   }
-
-  select > option {
-      color:red
-
-  } 
+ 
 
 
 .plant-form-save{
@@ -569,6 +623,20 @@ select {
         font-size:0.7em;
         margin-top:-2%;
         margin-left: 3%;
+    }
+
+    .profile-contact-button{
+
+        text-decoration: none;
+        font-weight: 300;
+        background-color: lightgreen;
+        color:black;
+        padding:1%;
+        font-size: 1rem;
+        display:flex;
+        align-self: center;
+        width: auto;
+
     }
 
     .profile-map{

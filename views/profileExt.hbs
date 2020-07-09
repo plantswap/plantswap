@@ -8,8 +8,6 @@
 
     <h1 class="header1">{{username}}</h1>
 
-
-
    
 <h3>{{username}}'s plants:</h3>
  {{/with}}
@@ -22,10 +20,11 @@
 {{/each}}
 </div>
 
-    {{#with userExt}}
     
+ <a class="profile-contact-button" href="mailto:{{user.email}}" target="_blank">Contact {{user.username}}</a> 
 
 
+    {{#with userExt}}
     <div class="user-data"> 
     <p> <span>📍{{country}} </span> <span>{{city}} </span> <span>{{zip}} </span> <span>{{street}}</span> <span>{{house}}</span></p>
     </div>
