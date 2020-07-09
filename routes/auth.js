@@ -40,19 +40,7 @@ router.post('/signup', (req, res, next) => {
     res.render('auth/signup', { message: 'Please add an email address.' });
     return;
   }
-
-  if (street === '') {
-    console.log("no street specified")
-    res.render('auth/signup', { message: 'Please add a street address.' });
-    return;
-  }
-
-  if (house === '') {
-    console.log("no house specified")
-    res.render('auth/signup', { message: 'Please add a house number.' });
-    return;
-  }
-
+ 
   if (country === '') {
     console.log("no country specified")
     res.render('auth/signup', { message: 'Please add a country.' });

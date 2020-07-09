@@ -52,8 +52,9 @@ router.post('/:plantId/delete', (req, res) => {
     console.log(err);
   })
 })
+ 
 
-router.get('/searchresults', (req, res) => {
+  router.get('/searchresults', (req, res) => {
     const user = req.user;
     let plantResults;
     Plant.find().populate('user')
@@ -80,10 +81,25 @@ router.get('/searchresults', (req, res) => {
     })
   });
 
+
 router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
+ 
+  /// How do I make the below work?
+
+
+  if (species.length === '') {
+    console.log("species not specified")
+    res.render('plants/add', {
+      message: 'Please add the species '
+    });
+    return;
+  }
+
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
+
+
   Plant.create({
     species,
     size,
