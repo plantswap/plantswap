@@ -12,6 +12,12 @@
     <button type="submit" class="search-button">🔍 Search</button> 
 </form> 
 <div class="search-results">
+
+<div class="search-map-box">
+    <div id='map' class="search-map"></div>
+
+</div>
+
     <div class="plant-list">
     {{#each plants}} 
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
@@ -20,9 +26,9 @@
     <input id="{{user._id}}" name="{{user.username}}" class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
     {{/each}}
  </div> 
-<input class="center" type="hidden" value="{{city}}">
- {{!-- the map part --}}
-    <div id='map' style="width: 400px; height: 400px;"></div>
+<input class="center" type="hidden" value="{{city}}"> 
+
+
 </div>
 </div>  
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
@@ -86,12 +92,35 @@ let response = await mapboxClient.geocoding
                 const popup = new mapboxgl.Popup()
                 popup.setLngLat(feature.center) 
                 popup.setMaxWidth("300px")
-                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a>`)
-                popup.addTo(map)
+                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a> <p>${elem.value}</p>`)
+                popup.addTo(map) 
+         
             }
         });
     });
     }
     doEvertything()
-</script> 
+</script>  
+
+
+<script>
+
+function showPopupOnClick(mapPoint) {
+console.log('hello')
+mapPoint = document.getElementsByClassName("div.mapboxgl-marker.mapboxgl-marker-anchor-center");
+
+mapPoint.onclick = displayPopup();
+
+function displayPopup(x) {
+
+ x = document.getElementsByClassName("div.mapboxgl-popup-content");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+
+}
+</script>
 </div>

@@ -6,13 +6,13 @@
 
     <form action="/plants/index" method="post" enctype="multipart/form-data" id="add-new-plant">
 
-      <label for="species">Species: </label>
+      <label for="species">Species *</label>
 
        
       <input class="plant-form-description" id="description" type="text" name="species" id="species">
      
  <br>
-        <label for="size">Size: </label>
+        <label for="size">Size *</label>
        
         <select class="plant-form-size"  id="size" name="size">
           <option value="cutting">cutting</option>
@@ -21,19 +21,19 @@
  
        
 <br>
-      <label for="description">Description: </label>
+      <label for="description">Description *</label>
       <br>
       <textarea rows="5" cols="60" class="plant-form-description" name="description" id="description"></textarea>
     
         <br>
         <br>
 
-      <label>↻ Upload an Image</label>
+      <label>↻ Upload an Image *</label>
 
       <input   type="file" name="photo">
 
       <br>
-
+ 
 
       <div class="plant-form-buttons">
         <button class="plant-form-save" type="submit" value="SAVE">Add a plant</button>

@@ -262,7 +262,7 @@
     
     .contact-button{
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 300;
         background-color: lightgreen;
         color:black;
         padding:1%;
@@ -395,8 +395,6 @@
     .search-results{
         display:flex;
         justify-content: space-around;
-        
-
     }
 
     .plant-list{
@@ -411,24 +409,23 @@
     .search-results > .plant-list > .single-plant-details >  a:hover{
     background-color: lightgreen;
     }
-
-    .search-map-box {
-        padding-right:5%;
-      display: flex;
-      width:700px;
-      height: 600px;
-    }
+ 
 
       .search-map {
-        width: 700px;
-         height:100%;
+        max-width: 400px; 
+        height: 400px;
       }
 
 
-    @media only screen and (max-width: 880px) {
+    @media only screen and (max-width: 1200px) {
 
         [class="search-results"]{
             display: block;
+        }
+
+        [class="search-map"]{
+            max-width: 200px; 
+            height: auto;
         }
     }
     
@@ -436,9 +433,39 @@
       
     }
 
-    .mapboxgl-popup > .mapboxgl-popup-anchor-bottom {
-
+    div.mapboxgl-marker.mapboxgl-marker-anchor-center{
+         
     }
+
+    div.mapboxgl-marker.mapboxgl-marker-anchor-center > svg {
+        
+    }
+
+    div.mapboxgl-popup-tip{
+        display: none;
+    }
+    div.mapboxgl-popup-content{
+        display: none;
+        background-color: rgba(144, 238, 144, 0.8);
+        padding: 5% 5% 0% 5%;
+        width:60%;
+    }
+    
+    .mapboxgl-popup-content > a {
+        text-decoration: underline 2px solid black;
+        color:black;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+
+    .mapboxgl-popup-content > p {
+         color:black;
+        font-size: 0.7rem;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+
 
     /* PLANT FORM */
      
@@ -489,11 +516,7 @@ select {
     padding: 0.5rem;
     padding-right: 2rem;
   }
-
-  select > option {
-      color:red
-
-  } 
+ 
 
 
 .plant-form-save{
@@ -569,6 +592,20 @@ select {
         font-size:0.7em;
         margin-top:-2%;
         margin-left: 3%;
+    }
+
+    .profile-contact-button{
+
+        text-decoration: none;
+        font-weight: 300;
+        background-color: lightgreen;
+        color:black;
+        padding:1%;
+        font-size: 1rem;
+        display:flex;
+        align-self: center;
+        width: auto;
+
     }
 
     .profile-map{
