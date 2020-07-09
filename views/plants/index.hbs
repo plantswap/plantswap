@@ -1,5 +1,5 @@
 <div class="plants-box">
- 
+
 <h1 class="header1" style="margin-bottom: -10%;">Browse plants </h1>
  
     <div class="all-plants">
@@ -7,8 +7,11 @@
 
 
 <h3 style="margin-left:0%;">I'm looking for...</h3> 
+
 <br>
 <br>
+<input class="center" type="hidden" value="{{city}}">
+
 <form action="/plants/searchresults" method="get" class="signup-form">
    <label for="species"></label>
   <input type="species" class="search" name="species" placeholder="Enter a plant name..." />
@@ -24,34 +27,57 @@
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
     <br>
     <p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a> 📍{{user.city}}
-    <input class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
+    <input id="{{user._id}}" name="{{user.username}}" class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
     </p>
     {{/each}}
- </div>
 
- <div class="seach-map-box"> 
-    <div id='map' class="search-map"></div> 
-</div>
+ </div> 
+ {{!-- the map part --}}
+    <div id='map' style="width: 400px; height: 400px;"></div>
+
+
 </div>
 
 
  </div>  
 
-
-
-
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
+    async function doEvertything() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
     var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+
+//center the map on search city or user's City
+let mapCenter;
+let response = await mapboxClient.geocoding
+        .forwardGeocode({
+            query: document.querySelector("input.center").value,
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+
+    if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) 
+            
+            {
+                var feature = response.body.features[0];
+                mapCenter=feature.center
+                }
+
 //draw the map
-    var map = new mapboxgl.Map({
+    let map =  new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [13.444297, 52.561553],
-        zoom: 10
+        center: mapCenter,
+        zoom: 9
     });
+    
     //iterate over plants in the list and set the marker on the map
     document.querySelectorAll("input.address").forEach(elem=>{
         console.log(elem.value)
@@ -73,8 +99,15 @@
                 new mapboxgl.Marker()
                 .setLngLat(feature.center)
                 .addTo(map); 
+                const popup = new mapboxgl.Popup()
+                popup.setLngLat(feature.center) 
+                popup.setMaxWidth("300px")
+                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a>`)
+                popup.addTo(map)
             }
         });
-    })
+    });
+    }
+    doEvertything()
 </script> 
 </div>

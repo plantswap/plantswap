@@ -47,14 +47,12 @@
                 response.body.features.length
             ) {
                 var feature = response.body.features[0];
-                console.log("feature is", feature)
                 var map = new mapboxgl.Map({
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: feature.center,
                     zoom: 10
                 });
-                console.log(feature)
                 new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
             }
         });
