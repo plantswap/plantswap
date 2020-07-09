@@ -84,22 +84,16 @@ router.post('/:plantId/delete', (req, res) => {
 
 router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   const { species, size, description } = req.body;
- 
-  /// How do I make the below work?
-
-
-  if (species.length === '') {
-    console.log("species not specified")
-    res.render('plants/add', {
-      message: 'Please add the species '
-    });
+  let imgPath, imgName;
+  if (species === '') {
+    console.log("please specify plant species.")
+    res.render('plants/add', { message: 'please specify plant species.' });
     return;
   }
-
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
-
-
+    if (req.file) {
+      imgPath = req.file.url;
+      imgName = req.file.originalname;
+    }
   Plant.create({
     species,
     size,
@@ -110,7 +104,6 @@ router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
   }).then(plant => {
     console.log(`Success! ${species} was added to the database.`);
     res.redirect(`/plants/myplants`);
-    // res.redirect(`/${plant._id}`);
   }).catch(err => {
     console.log(err);
   })

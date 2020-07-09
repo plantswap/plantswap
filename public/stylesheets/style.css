@@ -19,7 +19,7 @@
     }
     
     .intro {
-        margin-top: 15%;
+        margin-top: 5%;
         margin-left: 23%;
         margin-right: 23%;
         padding: 5%;
@@ -85,7 +85,19 @@
             font-size: 1rem;
         }
     }
-    
+
+    .topnav{
+        display:flex;
+        justify-content: space-around;
+    }
+
+
+    nav > .topnav > .username {
+        margin-top: 40px;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
     nav>.topnav>ul>li>a {
         text-decoration: none;
         color: inherit;
@@ -94,9 +106,13 @@
     nav>.topnav>ul>li>a:hover {
         background-color: lightgreen;
     }
-    
-    nav>.topnav>ul>li>i {
-        display: none;
+     
+
+    nav>.topnav>ul {
+        width:40%;
+    }
+    nav>.topnav>ul>li {
+        width:100%;
     }
     
     .map-box {
@@ -227,9 +243,6 @@
         margin-bottom: 4%
     }
     
-    .username {
-        margin-right: 600px;
-    }
     /* PLANT DETAILS  */
     
     .plant-details {
