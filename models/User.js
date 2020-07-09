@@ -3,19 +3,18 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
+  email:String,
   password: String,
   country: String,
   zip: String,
+  city: String,
+  street: String,
+  house: Number,
   role: {
     type: String,
     enum: ['admin', 'user'],
     default: 'user'
   }
-  // ,
-  // plants: [{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Plant'
-  // }]
 });
 
 const User = mongoose.model('User', userSchema);

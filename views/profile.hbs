@@ -1,26 +1,65 @@
-<nav> 
-        <ul>
-            <li>Find Plants</li>
-            <li>My Plants</li>
-            <li>Profile</li>
-            <li>Log Out</li>
-        </ul>
-    </nav>
-<p>{{user.username}}❤️</p>
-    <div class="myplants">
-        
-    <h1>My Data</h1>
-    {{#each plants}}
-<p class = "list-entry">
-<a href="/plants/{{this._id}}">{{this.species}}</a>
-{{!-- <form action="/movies/{{this._id}}/delete" method="post">
-    <button type="submit">Delete from Database</button>
-</form> --}}
-</p>
-{{/each}}
-    </div>
-<a href="/plants/add">add a plant</a>
+<div class="plants-box">
+  
+    {{#with user}}
 
-{{#if user}}
-<a href="/auth/logout">Logout</a>
-{{/if}}
+
+    <div class="user-data"> 
+  <h1>My Profile</h1>
+    <h2>{{username}}</h2>
+    <p><span></span>{{email}}</span></p>
+    <p> <span>📍{{country}} </span>, <span>{{city}} </span>, <span>{{zip}} </span>, <span>{{street}}</span>,  <span>{{house}}</span></p>
+  
+
+<form action="/profile/{{_id}}/edit" method="get">
+    <button class="profile-edit" type="submit">Edit</button>
+</form>
+ </div>
+
+<div class="map-box">
+<div id="map"  class="profile-map"></div>
+</div>
+ 
+ 
+
+
+
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+    let queryString="";
+    let queryThings=document.querySelectorAll("span");
+    for (thing of queryThings) {
+        console.log(thing.innerText);
+        queryString+=thing.innerText+" ";
+    }
+    console.log(queryString);
+	mapboxgl.accessToken = 'pk.eyJ1IjoibXJ6c3p0ayIsImEiOiJja2NicXFtcHMyN2RrMnZtZ2JwY2prMXFtIn0.Kve-wkiKTqkaXiD3fgG0MA';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+    mapboxClient.geocoding
+        .forwardGeocode({
+            query: queryString,
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function(response) {
+            if (
+                response &&
+                response.body &&
+                response.body.features &&
+                response.body.features.length
+            ) {
+                var feature = response.body.features[0];
+
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: feature.center,
+                    zoom: 10
+                });
+                new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+            }
+        });
+</script>
+{{/with}}
+</div>

@@ -20,7 +20,7 @@ router.post(
 )
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, country, zip} = req.body;
+  const { username, email, password, country, city, zip, street, house} = req.body;
 
   if (password.length < 8) {
     console.log("password too short")
@@ -30,8 +30,38 @@ router.post('/signup', (req, res, next) => {
     return;
   }
   if (username === '') {
-    console.log("no username wirth notmal name")
+    console.log("no username specified")
     res.render('auth/signup', { message: 'Please define a username.' });
+    return;
+  }
+
+  if (email === '') {
+    console.log("no email specified")
+    res.render('auth/signup', { message: 'Please add an email address.' });
+    return;
+  }
+
+  if (street === '') {
+    console.log("no street specified")
+    res.render('auth/signup', { message: 'Please add a street address.' });
+    return;
+  }
+
+  if (house === '') {
+    console.log("no house specified")
+    res.render('auth/signup', { message: 'Please add a house number.' });
+    return;
+  }
+
+  if (country === '') {
+    console.log("no country specified")
+    res.render('auth/signup', { message: 'Please add a country.' });
+    return;
+  }
+
+  if (zip === '') {
+    console.log("no zip specified")
+    res.render('auth/signup', { message: 'Please add a ZIP code.' });
     return;
   }
 
@@ -42,9 +72,13 @@ router.post('/signup', (req, res, next) => {
       const hash = bcrypt.hashSync(password, salt);
       User.create({ 
         username: username, 
+        email: email,
         password: hash,
         country: country,
-        zip: zip
+        city: city,
+        zip: zip,
+        street: street,
+        house: house
        })
         .then(dbUser => {
           console.log(dbUser,"user created")

@@ -16,9 +16,10 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
+//MONGODB_URI=mongodb://heroku_hss166d3:1p4f85jdfv7d67kbobksp97s5i@ds229388.mlab.com:29388/heroku_hss166d3
 
 mongoose
-  .connect('mongodb://localhost/plantswap', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI||'mongodb://localhost/plantswap', { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo!`
@@ -40,6 +41,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use(cors());
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -99,39 +101,6 @@ passport.use(
   })
 );
 
-// Passport fb strategy setup
-
-// FacebookStrategy = require('passport-facebook').Strategy;
-
-// passport.use(new FacebookStrategy({
-//     clientID: process.env.FACEBOOK_APP_ID,
-//     clientSecret: process.env.FACEBOOK_APP_SECRET,
-//     callbackURL: "http://127.0.0.1:3000/auth/facebook/callback"
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//     User.findOrCreate(function(err, user) {
-//       if (err) { return done(err); }
-//       done(null, user);
-//     });
-//   }
-// ));
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : '611880736200361',
-  //     cookie     : true,
-  //     xfbml      : true,
-  //     version    : 'v7.0'
-  //   });  
-  //   FB.AppEvents.logPageView();   
-  // };
-
-  // (function(d, s, id){
-  //    var js, fjs = d.getElementsByTagName(s)[0];
-  //    if (d.getElementById(id)) {return;}
-  //    js = d.createElement(s); js.id = id;
-  //    js.src = "https://connect.facebook.net/en_US/sdk.js";
-  //    fjs.parentNode.insertBefore(js, fjs);
-  //  }(document, 'script', 'facebook-jssdk'));
 
 
 app.use(passport.initialize());

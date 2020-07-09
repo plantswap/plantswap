@@ -1,0 +1,48 @@
+<div class="plants-box">
+
+  <h1 class="header1">Edit plant</h1>
+
+  <div class="plant-form">
+
+    {{#with plant}}
+    <form action="/plants/edit/{{_id}}" enctype="multipart/form-data" method="post">
+
+      <label for="species">Species: </label>
+
+      <input class="plant-form-description" id="description" type="text" name="species" id="species"
+        value="{{species}}">
+
+    <br>
+ 
+        <label for="size">Size: </label>
+ 
+        <select  id="size" name="size" value="{{size}}">
+          <option value="cutting">cutting</option>
+          <option value="mature">mature</option>
+        </select>
+      
+<br>
+
+      <label for="description">Description: </label>
+      <br>
+      <textarea rows="5" cols="60" name="description" class="plant-form-description" id="description" value="{{description}}">{{description}}</textarea>
+      <br>
+      <br>
+      <label >↻ Upload an Image</label>
+
+      <input type="file" name="photo" >
+
+      <br>
+
+
+      <div class="plant-form-buttons">
+        <button type="submit" class="plant-form-save" value="SAVE">Save</button>
+
+    </form>
+
+    <a class="plant-form-cancel" href="/plants/{{_id}}">Cancel</a>
+  </div>
+  {{/with}}
+</div>
+
+</div>

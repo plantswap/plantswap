@@ -1,14 +1,49 @@
-  
-<form action="/plants/index" method="post">
-    <label for="species">Species: </label>
-    <input type="text" name="species" id="species">
+<div class="plants-box">
 
-{{!-- size should be a dropdown --}}
-    <label for="size">Size: </label>
-    <input type="text" name="size" id="size">
+  <h1 class="header1">Add a new plant</h1>
 
-    <label for="description">Description: </label>
-    <input type="textarea" name="description" id="description">
+  <div class="plant-form">
 
-    <button type="submit">Add a plant</button>
-</form>
+    <form action="/plants/index" method="post" enctype="multipart/form-data" id="add-new-plant">
+
+      <label for="species">Species: </label>
+
+       
+      <input class="plant-form-description" id="description" type="text" name="species" id="species">
+     
+ <br>
+        <label for="size">Size: </label>
+       
+        <select class="plant-form-size"  id="size" name="size">
+          <option value="cutting">cutting</option>
+          <option value="mature">mature</option>
+        </select>
+ 
+       
+<br>
+      <label for="description">Description: </label>
+      <br>
+      <textarea rows="5" cols="60" class="plant-form-description" name="description" id="description"></textarea>
+    
+        <br>
+        <br>
+
+      <label>↻ Upload an Image</label>
+
+      <input   type="file" name="photo">
+
+      <br>
+
+
+      <div class="plant-form-buttons">
+        <button class="plant-form-save" type="submit" value="SAVE">Add a plant</button>
+
+
+    </form>
+ 
+
+  <a class="plant-form-cancel" href="/plants/{{_id}}">Cancel</a>
+ </div>
+</div>
+
+</div>

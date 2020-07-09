@@ -1,27 +1,29 @@
 
-     
- <nav> 
-    <ul>
-        <li class='username'>{{user.username}}❤️</li>
-        <li><a href='/plants/index'>Find Plants</a></li>
-        <li><a href='/plants/myplants'>My Plants</a></li>
-        <li><a href='/profile'>Profile</a></li>
-        <li><a href='/auth/logout'>Log Out</a></li>
-    </ul>
-</nav>
-    <div class="myplants">    
-    <h1>My Plants</h1>
-    {{#each plants}}
+    <div class="plants-box">    
+    <h1 class="header1">My Plants</h1>
+
+    
+    
+
+
+ <div class="users-plants">
+     {{#each plants}}
 <p class = "list-entry">
-<a href="/plants/{{this._id}}">{{this.species}}</a>
+    <p><a  class="single-plant-header" href="/plants/{{this._id}}">{{this.species}}</a>
+, {{this.size}}</p>
 {{!-- <form action="/movies/{{this._id}}/delete" method="post">
     <button type="submit">Delete from Database</button>
 </form> --}}
+
+<div class="users-plants-description">
+<p>{{this.description}}</p>
+</div>
+<p>  </p>
+
 </p>
 {{/each}}
-    </div>
-<a href="/plants/add">add a plant</a>
+</div>
+{{!-- 
+<button href="/plants/add" class="edit-plant-edit ">Add plant</button> --}}
 
-{{#if user}}
-<a href="/auth/logout">Logout</a>
-{{/if}}
+</div>
