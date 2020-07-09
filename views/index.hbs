@@ -1,19 +1,50 @@
 
-
-
 <div class="intro">
+
+ 
+{{#if user}}
+
+
+<div class="intro-text"> 
+<h2>Welcome to PlantSwap {{#if user}}{{user.username}}{{/if}} ❤️</h2>
+<p>Exchange and share your plants with other plant lovers</p>
+</div> 
+
+<div class="intro-buttons">
+<a href="/plants/myplants">My Plants</a>
+<a href="/auth/logout">Logout</a>
+
+</div>
+{{else}}
+
 <div class="intro-text"> 
 <h1>Welcome to PlantSwap {{#if user}}{{user.username}}{{/if}} ❤️</h1>
 <p>Exchange and share your plants with other plant lovers</p>
 </div> 
- 
+
+<h2 style="text-align:center; margin-bottom:3%;">How it works</h2>
+
+<div class="how-it-works">
+
+<div class="container"> 
+<i class="fa fa-leaf" aria-hidden="true"></i>
+<p>Upload a plant photo with a description</p>
+</div>
+
+<div  class="container">
+<i class="fa fa-search" aria-hidden="true"></i>
+<p>Browse more plants from the map</p>
+</div>
+
+<div  class="container">
+<i class="fa fa-users" aria-hidden="true"></i>
+<p>Contact other plant owners directly</p>
+</div>
+
+</div>
 
 <div class="intro-buttons">
-{{#if user}}
-<a href="/plants/myplants">My Plants</a>
-<a href="/auth/logout">Logout</a>
-{{else}}
 <a href="/auth/signup">Signup</a>
 <a href="/auth/login">Login</a>
-{{/if}}
 </div>
+{{/if}}

@@ -22,9 +22,9 @@
         margin-top: 15%;
         margin-left: 23%;
         margin-right: 23%;
-        padding-bottom: 2%;
+        padding: 5%;
         background-color: rgba(253, 253, 253, 0.8);
-        padding: 15px;
+         
     }
     
     .intro-text {
@@ -126,6 +126,24 @@
         margin-top: 3%;
         margin-bottom: 3%;
     }
+
+/* How It Works */
+
+.how-it-works {
+    display:flex;
+    
+}
+
+.how-it-works > .container > i {
+    font-size:3.5rem; 
+    text-align: center;
+    color:darkgreen;
+}
+
+.container{
+    text-align: center;
+}
+
     /* AUTHENTICATION */
     
     .intro-buttons {
@@ -418,6 +436,9 @@
       
     }
 
+    .mapboxgl-popup > .mapboxgl-popup-anchor-bottom {
+
+    }
 
     /* PLANT FORM */
      

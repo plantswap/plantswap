@@ -3,12 +3,14 @@
     <h2 style="margin-bottom: 2%;">Sign Up for PlantSwap</h2>
   
     
-  <p style="font-size: 1rem; margin-left:2%; text-align:center">We need an area address to show your plants on a map.    
+  <p style="font-size: 1rem; margin-left:2%; text-align:center">We need an address to show your plants on a map.    
+    <br>
+    Please enter some real address for the tool to work properly :)
     <br>
 ​ Your email may be accessible by other users.</p>
 
 <form id="form" action="/auth/signup" method="POST" class="signup-form"> 
-  <label for="username">User name *</label><br />
+  <label for="username">User Name *</label><br />
   <input type="text" name="username" />
 <br>
  <label for="email">Email *</label><br />
@@ -35,7 +37,7 @@
   {{/if}}
 <br>
   <div class="signup-form-buttons">
-    <button type="submit">Signup</button>
+    <button type="submit">Sign Up</button>
     <a class="signup-cancel" href="/">Cancel</a> 
   </div>
 </form>
