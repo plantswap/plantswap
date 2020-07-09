@@ -55,14 +55,25 @@ router.post('/:plantId/delete', (req, res) => {
 
 router.get('/searchresults', (req, res) => {
     const user = req.user;
+    console.log(req.query.city, req.query.species)
     Plant.find().populate('user')
     .then(allPlants => {
-      let plantResults = allPlants.filter(plant=>plant
-        .species
-        .toLowerCase()
-        .includes(req.query.species.toLowerCase()) && plant.user.city.toLowerCase()==req.query.city.toLowerCase()
+      let plantResults
+      if (req.query.city) {
+        plantResults = allPlants.filter(plant=>plant
+          .species
+          .toLowerCase()
+          .includes(req.query.species.toLowerCase()) 
+          && plant.user.city.toLowerCase()==req.query.city.toLowerCase()
+          )
+      } else {
+        plantResults = allPlants.filter(plant=>plant
+          .species
+          .toLowerCase()
+          .includes(req.query.species.toLowerCase()) 
         )
-      res.render('plants/index', { plants: plantResults, user: user });
+      }
+      res.render('plants/index', { plants: plantResults, user: user, city: req.query.city||user.city });
       console.log(user)
     }).catch(err => {
       console.log(err);
@@ -92,7 +103,7 @@ router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
 router.get('/index', (req, res) => {
   const user = req.user;
   Plant.find().populate('user').then(allPlants => {
-    res.render('plants/index', { plants: allPlants, user: user });
+    res.render('plants/index', { plants: allPlants, user: user, city: user.city});
     console.log(user)
   }).catch(err => {
     console.log(err);
@@ -103,7 +114,7 @@ router.get('/myplants', loginCheck(), (req, res, next) => {
   const user = req.user;
   Plant.find({user: req.user._id})
   .then(myPlants => {
-    res.render('plants/myplants', { plants: myPlants, user: user });
+    res.render('plants/myplants', { plants: myPlants, user: user});
   }).catch(err => {
     console.log(err);
   })
@@ -138,15 +149,6 @@ router.post("/plants/add", uploadCloud.single("photo"), (req, res, next) => {
   const { title, description } = req.body;
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
-
-  Movie.create({ title, description, imgPath, imgName })
-    .then(movie => {
-      res.redirect("/");
-    })
-    .catch(error => {
-      console.log(error);
-    });
 });
-
 
 module.exports = router;
