@@ -1,17 +1,9 @@
 <div class="plants-box">
-
 <h1 class="header1" style="margin-bottom: -10%;">Browse plants </h1>
- 
     <div class="all-plants">
-
-
-
-<h3 style="margin-left:0%;">I'm looking for...</h3> 
-
+<h3 style="margin-left:0%;">I'm looking for...</h3>
 <br>
 <br>
-<input class="center" type="hidden" value="{{city}}">
-
 <form action="/plants/searchresults" method="get" class="signup-form">
    <label for="species"></label>
   <input type="species" class="search" name="species" placeholder="Enter a plant name..." />
@@ -19,28 +11,20 @@
   <input type="city" class="search" name="city" placeholder="Enter a city..." />
     <button type="submit" class="search-button">🔍 Search</button> 
 </form> 
-
-
 <div class="search-results">
     <div class="plant-list">
     {{#each plants}} 
     <a class="single-plant-header" href="/plants/{{_id}}">{{species}}</a>
     <br>
-    <p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a> 📍{{user.city}}
+    <p class="single-plant-details">{{size}}, by <a href="/profiles/{{user._id}}">{{user.username}}</a> 📍{{user.city}}</p>
     <input id="{{user._id}}" name="{{user.username}}" class="address" type="hidden" value="{{user.house}} {{user.street}} {{user.zip}} {{user.city}} {{user.country}}">
-    </p>
     {{/each}}
-
  </div> 
+<input class="center" type="hidden" value="{{city}}">
  {{!-- the map part --}}
     <div id='map' style="width: 400px; height: 400px;"></div>
-
-
 </div>
-
-
- </div>  
-
+</div>  
 <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>

@@ -55,7 +55,7 @@ router.post('/:plantId/delete', (req, res) => {
 
 router.get('/searchresults', (req, res) => {
     const user = req.user;
-    console.log(req.query.city, req.query.species)
+    let plantResults;
     Plant.find().populate('user')
     .then(allPlants => {
       let plantResults
@@ -136,12 +136,10 @@ router.get('/:plantId', (req, res) => {
     } else {
       res.render('plants/plantDetails', { plant: plant, user: user });
     }
-
   }).catch(err => {
     console.log(err);
   });
-});  
- 
+});
 
 router.post("/plants/add", uploadCloud.single("photo"), (req, res, next) => {
   const { title, description } = req.body;
