@@ -88,43 +88,18 @@ let response = await mapboxClient.geocoding
                 var feature = response.body.features[0];
                 new mapboxgl.Marker()
                 let marker = new mapboxgl.Marker();
-
                 marker.setLngLat(feature.center)
                 marker.addTo(map); 
 
-                marker.getElement().addEventListener("click", event)
                 const popup = new mapboxgl.Popup()
                 popup.setLngLat(feature.center) 
                 popup.setMaxWidth("300px")
                 popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a> <p>${elem.value}</p>`)
                 popup.addTo(map) 
-         
             }
         });
     });
     }
     doEvertything()
 </script>  
-
-
-<script>
-
-function showPopupOnClick(mapPoint) {
-console.log('hello')
-mapPoint = document.getElementsByClassName("div.mapboxgl-marker.mapboxgl-marker-anchor-center");
-
-mapPoint.onclick = displayPopup();
-
-function displayPopup(x) {
-
- x = document.getElementsByClassName("div.mapboxgl-popup-content");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-} 
-
-}
-</script>
 </div>
