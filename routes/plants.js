@@ -83,6 +83,7 @@ router.post('/:plantId/delete', (req, res) => {
 
 
 router.post('/index', loginCheck(), uploadCloud.single("photo"), (req, res) => {
+  console.log("working?")
   const { species, size, description } = req.body;
   let imgPath, imgName;
   if (species === '') {

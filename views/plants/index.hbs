@@ -94,7 +94,7 @@ let response = await mapboxClient.geocoding
                 const popup = new mapboxgl.Popup()
                 popup.setLngLat(feature.center) 
                 popup.setMaxWidth("300px")
-                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a> <p>${elem.value}</p>`)
+                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a>`)
                 popup.addTo(map) 
             }
         });
