@@ -464,19 +464,26 @@
     }
 
     div.mapboxgl-marker.mapboxgl-marker-anchor-center{
+    
           
     }
 
     div.mapboxgl-marker.mapboxgl-marker-anchor-center > svg {
- 
+        
         
     }
+
+    div.mapboxgl-popup { 
+    }
+   
 
     div.mapboxgl-popup-tip{
         display: none;
     }
+
+
+
     div.mapboxgl-popup-content{
-        display: none;
         background-color: rgba(144, 238, 144, 0.8);
         padding: 5% 5% 0% 5%;
         width:60%;
