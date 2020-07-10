@@ -4,7 +4,7 @@
     <h2>Log into PlantSwap</h2>
   <p></p>
 
-<form id="form" action="/auth/login" method="POST">
+<form id="form" class="login-form" action="/auth/login" method="POST">
   <label for="username">User name</label><br />
   <input type="text" name="username" />
   <br>
@@ -15,10 +15,12 @@
     <div class="error-message">{{errorMessage}}</div>
   {{/if}}
 <br>
-<div class="signup-form-buttons">
-  <button type="submit">Log in</button>
 
-    <a class="signup-cancel" href="/">Cancel</a> 
+
+<div class="signup-form-buttons">
+  <button style="font-size: 1.2rem;" type="submit">Log in</button>
+
+    <a class="signup-cancel"  style="color:black; font-size: 1.2rem;" href="/">Cancel</a> 
 </div>
 
    {{#if message}}

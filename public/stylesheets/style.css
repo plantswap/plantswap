@@ -20,8 +20,8 @@
     
     .intro {
         margin-top: 5%;
-        margin-left: 23%;
-        margin-right: 23%;
+        margin-left: 18%;
+        margin-right: 18%;
         padding: 5%;
         background-color: rgba(253, 253, 253, 0.8);
          
@@ -35,6 +35,13 @@
         align-items: center;
         align-content: stretch;
     }
+
+
+@media only screen and (max-width: 768px) and (min-width: 320px){
+        [class="intro-h2"] {
+        font-size: 1.8em;
+    }
+}
     
     h1 {
         font-size: 3em;
@@ -147,8 +154,23 @@
 
 .how-it-works {
     display:flex;
-    
 }
+
+@media only screen and (max-width: 768px) and (min-width: 320px){
+    .how-it-works {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center; 
+        justify-content: center;
+        flex-basis: 100%;
+    }
+}
+
 
 .how-it-works > .container > i {
     font-size:3.5rem; 
@@ -167,7 +189,7 @@
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        align-content: stretch;
+        align-content: stretch; 
     }
     
     .intro-buttons>a {
@@ -182,6 +204,14 @@
         text-decoration: none;
         text-align: center;
     }
+
+
+ 
+@media only screen and (max-width: 768px) and (min-width: 320px){
+    .intro-buttons {
+        display: block;
+    }
+}
     
     .intro-buttons>button {
         margin: 10px;
@@ -219,7 +249,7 @@
         margin: 10px;
         border: none;
         background-color: lightgreen;
-        width: 5em;
+        width: auto;
         height: 1.5em;
         text-decoration: none;
         text-align: center;
@@ -242,6 +272,16 @@
     input {
         margin-bottom: 4%
     }
+ 
+.login-form > input { 
+    width:90%
+}
+    
+@media only screen and (max-width: 768px) and (min-width: 320px){
+    [class="login-form"] { 
+        width:90%        
+}
+}
     
     /* PLANT DETAILS  */
     
