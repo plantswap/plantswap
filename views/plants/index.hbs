@@ -85,21 +85,22 @@ let response = await mapboxClient.geocoding
                 response.body.features &&
                 response.body.features.length
             ) {
+                
                 var feature = response.body.features[0];
                 new mapboxgl.Marker()
-                let marker = new mapboxgl.Marker();
-                marker.setLngLat(feature.center)
-                marker.addTo(map); 
-
-                const popup = new mapboxgl.Popup()
-                popup.setLngLat(feature.center) 
-                popup.setMaxWidth("300px")
-                popup.setHTML(`<a href="/profiles/${elem.id}">${elem.name}</a>`)
-                popup.addTo(map) 
+                .setLngLat(feature.center)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(
+            `<a href="/profiles/${elem.id}">${elem.name}</a><p>${elem.value}</p>`
+            )) // sets a popup on this marker
+                .addTo(map);
             }
         });
     });
     }
     doEvertything()
+
+
+
+    
 </script>  
 </div>
